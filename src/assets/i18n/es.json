@@ -1,7 +1,19 @@
 {
   "MENUITEMS": {
     "DASHBOARD": "Dashboard",
-    "PRODUCT": "Products",
-    "PROVIDER": "Providers"
+    "PRODUCT": "Productos",
+    "PROVIDER": "Proveedores"
+  },
+  "PRODUCT": {
+    "TITLE_TABLE": "Productos",
+    "TOTAL_RECORDS": "registros",
+    "NO_DATA_DISPLAY": "No hay información para mostrar",
+    "SEARCH": "Buscar",
+    "CODE": "Código",
+    "NAME": "Nombre",
+    "DESCRIPTION": "Descripción",
+    "NAME_BRAND": "Marca",
+    "VALUE_IVA": "IVA",
+    "ACTIONS": "Acciones"
   }
 }

@@ -1,18 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardsComponent} from "./dashboards/dashboards.component";
-import {ProductAdminComponent} from "./product/product-admin.component";
-import {ProviderAdminComponent} from "./provider/provider-admin.component";
 
 const routes: Routes = [
   {
-    path: 'product', component: ProductAdminComponent
-  },
-  {
-    path: 'provider', component: ProviderAdminComponent
+    path: 'provider-products', redirectTo: 'provider-products/admin'
   },
   {
     path: 'dashboard', component: DashboardsComponent
+  },
+  {
+    path: 'provider-products', loadChildren: () => import('./provider-products/provider-products.module').then(m => m.ProviderProductsModule),
   },
 ];
 
