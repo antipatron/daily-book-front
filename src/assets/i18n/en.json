@@ -11,9 +11,9 @@
     "SEARCH": "Search",
     "CODE": "Code",
     "NAME": "Name",
-    "DESCRIPTION": "Descrption",
-    "NAME_BRAND": "Brand name",
-    "VALUE_IVA": "IVA value",
+    "DESCRIPTION": "Description",
+    "NAME_BRAND": "Brand",
+    "VALUE_IVA": "IVA",
     "ACTIONS": "Actions"
   }
 }

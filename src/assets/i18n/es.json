@@ -1,19 +1,19 @@
 {
   "MENUITEMS": {
     "DASHBOARD": "Dashboard",
-    "PRODUCT": "Products",
-    "PROVIDER": "Providers"
+    "PRODUCT": "Productos",
+    "PROVIDER": "Proveedores"
   },
   "PRODUCT": {
-    "TITLE_TABLE": "Products",
-    "TOTAL_RECORDS": "records",
-    "NO_DATA_DISPLAY": "No data to display",
-    "SEARCH": "Search",
-    "CODE": "Code",
-    "NAME": "Name",
-    "DESCRIPTION": "Descrption",
-    "NAME_BRAND": "Brand name",
-    "VALUE_IVA": "IVA value",
-    "ACTIONS": "Actions"
+    "TITLE_TABLE": "Productos",
+    "TOTAL_RECORDS": "registros",
+    "NO_DATA_DISPLAY": "No hay información para mostrar",
+    "SEARCH": "Buscar",
+    "CODE": "Código",
+    "NAME": "Nombre",
+    "DESCRIPTION": "Descripción",
+    "NAME_BRAND": "Marca",
+    "VALUE_IVA": "IVA",
+    "ACTIONS": "Acciones"
   }
 }
