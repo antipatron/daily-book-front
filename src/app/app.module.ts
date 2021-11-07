@@ -1,69 +1,62 @@
-// import * as $ from 'jquery';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-	CommonModule,
-	LocationStrategy,
-	PathLocationStrategy
-} from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NgbModule, NgbNavModule, NgbPopoverModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import { FullComponent } from './layouts/full/full.component';
+import {LayoutsModule} from './layouts/layouts.module';
+import {PagesModule} from './pages/pages.module';
+import {HttpErrorInterceptor} from './core/helpers/http-error.interceptor';
+import {HttpSuccessInterceptor} from './core/helpers/http-success.interceptor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import {ToastModule} from "primeng/toast";
+import {ConfirmationService, MessageService} from 'primeng/api';
+import {ConfirmDialogModule} from "primeng/confirmdialog";
+import {MenuService} from './core/menu/menu.service';
+import {TrimOnBlurModule} from "ng2-trim-on-blur";
 
-import { NavigationComponent } from './shared/header-navigation/navigation.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
-
-
-import { Approutes } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SpinnerComponent } from './shared/spinner.component';
-
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-	suppressScrollX: true,
-	wheelSpeed: 1,
-	wheelPropagation: true,
-	minScrollbarLength: 20
-};   
+export function createTranslateLoader(http: HttpClient): any {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		SpinnerComponent,
-		FullComponent,
-		NavigationComponent,
-		SidebarComponent,
-		BreadcrumbComponent
-	],
-	imports: [
-		CommonModule,
-		BrowserModule,
-		BrowserAnimationsModule,
-		FormsModule,
-		HttpClientModule,
-		PerfectScrollbarModule,
-		NgbModule,
-		RouterModule.forRoot(Approutes, { useHash: false })
-	],
-	providers: [
-		{
-			provide: LocationStrategy,
-			useClass: PathLocationStrategy
-		},
-	{
-			provide: PERFECT_SCROLLBAR_CONFIG,
-			useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-		}
-	],
-	bootstrap: [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    PagesModule,
+    NgbModule,
+    NgbTooltipModule,
+    NgbPopoverModule,
+    NgbNavModule,
+    LayoutsModule,
+    TranslateModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ToastModule,
+    ConfirmDialogModule,
+    TrimOnBlurModule
+  ],
+  providers: [
+    MessageService, ConfirmationService, MenuService,
+   /* { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor,  multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpSuccessInterceptor, multi: true },*/
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
