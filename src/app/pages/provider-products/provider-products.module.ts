@@ -11,13 +11,15 @@ import {ProductListComponent} from './product/list/product-list.component';
 import {TableModule} from "primeng/table";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ProviderListComponent } from './provider/list/provider-list/provider-list.component';
 
 
 @NgModule({
   declarations: [
     ProductAdminComponent,
     ProviderAdminComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProviderListComponent
   ],
   imports: [
     CommonModule,
