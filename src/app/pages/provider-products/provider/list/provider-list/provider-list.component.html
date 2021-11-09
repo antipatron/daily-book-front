@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="title-table">
+    <p>{{ 'PROVIDER.TITLE_TABLE' | translate }}</p>
+    <span> {{totalRecords | number}} {{'PROVIDER.TOTAL_RECORDS' | translate }} </span>
+
+    <div class="row mt-2">
+      <div class="col-3">
+        <div>
+          <label>{{'PROVIDER.PROVIDER_NAME' | translate}}</label>
+        </div>
+        <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="providerName" />
+      </div>
+      <div class="col-3">
+        <div>
+          <label>{{'PROVIDER.SELLER_NAME' | translate}}</label>
+        </div>
+        <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="sellerName" />
+      </div>
+      <div class="col-3">
+        <div>
+          <label></label>
+        </div>
+        <button class="btn btn-primary" (click)="searchProviders()" pButton>{{'PROVIDER.SEARCH' | translate}}</button>
+      </div>
+    </div>
+  </div>
+
+  <p-table [value]="providers" responsiveLayout="scroll" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
+           [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+          {{'PROVIDER.'+col.header | translate }}
+          <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-provider>
+      <tr>
+        <td>{{provider.identifier}}</td>
+        <td>{{provider.address}}</td>
+        <td>{{provider.email}}</td>
+        <td>{{provider.providerName}}</td>
+        <td>{{provider.sellerName}}</td>
+        <td>{{provider.phone1}}</td>
+        <td>{{provider.phone2}}</td>
+        <td>{{provider.phone3}}</td>
+
+        <td style="width: 170px">
+          <div class="row">
+            <div class="actions-table">
+
+            </div>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td class="text-center" colspan="8" style="text-align: center;">
+          <b class="h8">{{'PROVIDER.NO_DATA_DISPLAY' | translate }}</b>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
