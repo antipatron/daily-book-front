@@ -9,11 +9,32 @@
     "TOTAL_RECORDS": "registros",
     "NO_DATA_DISPLAY": "No hay información para mostrar",
     "SEARCH": "Buscar",
+    "CREATE": "Crear producto",
+    "CREATE_PRODUCT": "Nuevo producto",
+    "RETURN": "Volver",
+    "ID": "Id",
     "CODE": "Código",
     "NAME": "Nombre",
     "DESCRIPTION": "Descripción",
-    "NAME_BRAND": "Marca",
-    "VALUE_IVA": "IVA",
-    "ACTIONS": "Acciones"
+    "NET_PRICE": "Precio neto",
+    "SELL_PRICE": "Precio de venta",
+    "BRAND": "Marca",
+    "SELECT_BRAND": "Seleccionar marca",
+    "IVA": "IVA",
+    "SELECT_IVA": "Seleccionar IVA",
+    "ACTIONS": "Acciones",
+    "SAVE": "Guardar"
+  },
+  "COMMON": {
+    "VALIDATORS": {
+      "REQUIRED": "requerido",
+      "MIN_LEGTH": "largo mínimo",
+      "CHARACTERS": "caracteres",
+      "MAX_LEGTH": "largo máximo",
+      "INVALID_PATTERN": "no tiene un patrón válido.",
+      "MIN": "valor mínimo",
+      "MAX": "supera el valor máximo de ",
+      "FIELD": "Campo"
+    }
   }
 }

@@ -11,13 +11,17 @@ import {ProductListComponent} from './product/list/product-list.component';
 import {TableModule} from "primeng/table";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ProductEditComponent } from './product/edit/product-edit.component';
+import { InputNumberModule } from 'primeng/inputnumber';
+import {DropdownModule} from "primeng/dropdown";
 
 
 @NgModule({
   declarations: [
     ProductAdminComponent,
     ProviderAdminComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductEditComponent
   ],
   imports: [
     CommonModule,
@@ -29,8 +33,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     TranslateModule,
     TableModule,
     InputTextModule,
+    InputNumberModule,
     FormsModule,
     ReactiveFormsModule,
+    DropdownModule,
   ]
 })
 export class ProviderProductsModule { }

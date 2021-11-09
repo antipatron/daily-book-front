@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {Product} from "../../../../core/models/product.model";
 import {ProductService} from "../../../../core/services/product.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   private sub: Subscription = new Subscription();
   loading = false;
@@ -18,7 +19,8 @@ export class ProductListComponent implements OnInit {
   code: any = null;
   public cols: any[] | undefined;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cols = [
@@ -47,13 +49,14 @@ export class ProductListComponent implements OnInit {
   }
 
   searchProducts(){
-    console.log(this.code)
-    console.log(this.name)
     this.getProductsList(this.code, this.name, 1)
+  }
+
+  createProduct() {
+    this.router.navigate(['provider-products/admin/product/create/']);
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
-
 }

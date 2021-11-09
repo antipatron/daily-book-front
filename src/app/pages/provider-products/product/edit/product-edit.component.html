@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-end mb-3">
+  <a class="link" (click)="goBack()" >
+    <i class="bx bx-arrow-back"></i>
+    <span class="text-decoration-underline ">{{'PRODUCT.RETURN' | translate}}</span>
+  </a>
+</div>
+
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="title-page">
+            <div class="content-name">
+              <span class="subtitle-page">{{'PRODUCT.CREATE_PRODUCT' | translate}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row mt-4">
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.ID' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="id" readonly="true" />
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.CODE' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="code"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['code'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['code']?.errors, ('PRODUCT.CODE' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.NAME' | translate}}<span class="text-danger">*</span></label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="name"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['name'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['name']?.errors, ('PRODUCT.NAME' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.DESCRIPTION' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="description"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['description'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['description']?.errors, ('PRODUCT.DESCRIPTION' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.NET_PRICE' | translate}}</label>
+                  </div>
+                  <p-inputNumber formControlName="netPrice" [minFractionDigits]="2" [style]="{'width': '100%'}"></p-inputNumber>
+                  <div *ngIf="validatorService.isInvalid(form.controls['netPrice'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['netPrice']?.errors, ('PRODUCT.NET_PRICE' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.SELL_PRICE' | translate}}</label>
+                  </div>
+                  <p-inputNumber formControlName="sellPrice" [minFractionDigits]="2" [style]="{'width': '100%'}"></p-inputNumber>
+                  <div *ngIf="validatorService.isInvalid(form.controls['sellPrice'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['sellPrice']?.errors, ('PRODUCT.SELL_PRICE' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.BRAND' | translate}}</label>
+                  </div>
+                  <p-dropdown [options]="brands" formControlName="brand" placeholder="{{'PRODUCT.SELECT_BRAND' | translate}}" optionLabel="name" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PRODUCT.IVA' | translate}}</label>
+                  </div>
+                  <p-dropdown [options]="ivas" formControlName="iva" placeholder="{{'PRODUCT.SELECT_IVA' | translate}}" optionLabel="value" [showClear]="true"></p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button pButton class="btn btn-primary"
+            (click)="saveProduct()"
+            [disabled]="!form.valid || disableButtonSave">
+      {{'PRODUCT.SAVE' | translate}}</button>
+  </div>
