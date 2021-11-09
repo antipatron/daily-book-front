@@ -36,5 +36,20 @@
       "MAX": "supera el valor máximo de ",
       "FIELD": "Campo"
     }
+  },
+  "PROVIDER": {
+    "TITLE_TABLE": "Proveedores",
+    "TOTAL_RECORDS": "registros",
+    "NO_DATA_DISPLAY": "No hay información para mostrar",
+    "SEARCH": "Buscar",
+    "IDENTIFIER": "Identificador",
+    "ADDRESS": "Dirección",
+    "EMAIL": "Correo",
+    "PROVIDER_NAME": "Nombre Proveedor",
+    "SELLER_NAME": "Nombre Vendedor",
+    "PHONE_ONE": "Telefono 1",
+    "PHONE_TWO": "Telefono 2",
+    "PHONE_THREE": "Telefono 3",
+    "ACTIONS": "Acciones"
   }
 }
