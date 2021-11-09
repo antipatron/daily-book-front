@@ -4,10 +4,11 @@ import {Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorService} from "../../../../shared/validator/validator.service";
-import {Product} from "../../../../core/models/product.model";
 import {ProductFullDto} from "../../../../core/dtos/product-full.dto";
 import {BrandService} from "../../../../core/services/brand.service";
 import {IvaService} from "../../../../core/services/iva.service";
+import {ProviderService} from "../../../../core/services/provider.service";
+import {ProductService} from "../../../../core/services/product.service";
 
 @Component({
   selector: 'app-product-edit',
@@ -18,18 +19,22 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   private sub: Subscription = new Subscription();
   form: FormGroup;
   disableButtonSave = false;
-  brands: any;
+  brands: any[] = [];
   brandSelected: any;
-  ivas: any;
+  ivas: any[] = [];
   ivaSelected: any;
+  providers: any[] = [];
+  providerSelected: any;
 
   constructor(private location: Location, private router: Router, private formBuilder: FormBuilder,
               public readonly validatorService: ValidatorService, private readonly brandService: BrandService,
-              private readonly ivaService: IvaService) {
+              private readonly ivaService: IvaService, private readonly providerService: ProviderService,
+              private readonly productService: ProductService) {
     this.form = formBuilder.group({});
   }
 
   ngOnInit(): void {
+    this.getProviders();
     this.getBrands();
     this.getIvas();
     this.initializeForm();
@@ -53,6 +58,15 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     }));
   }
 
+  getProviders(): void {
+    this.sub.add(this.providerService.getProvidersFilter('', '', 1).subscribe(data => {
+      this.providers = data;
+    }, error => {
+      console.error('Error: ' + error);
+    }, () => {
+    }));
+  }
+
   initializeForm(): void {
     this.form = this.formBuilder.group({
       id: [null],
@@ -63,7 +77,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       sellPrice: [null],
       brand: [null],
       iva: [null],
-      provider: [null]
+      provider: [null, Validators.required]
     });
   }
 
@@ -79,14 +93,22 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       ...obj,
       brandId: obj["brand"]?obj["brand"].id:null,
       ivaId: obj["iva"]?obj["iva"].id:null,
-      companyId: company
+      providerId: obj["provider"]?obj["provider"].id:null,
+      companyId: company,
+      timestamp: new Date()
     }
   }
 
   saveProduct(){
-    /*this.disableButtonSave = true;*/
+    this.disableButtonSave = true;
     let product = this.buildForm(this.form.controls)
-    console.log(product)
+    this.sub.add(this.productService.save(product).subscribe(data => {
+      this.goBack();
+    }, error => {
+      console.error('Error: ' + error);
+    },() => {
+      this.disableButtonSave = false;
+    }));
   }
 
   goBack(): void {

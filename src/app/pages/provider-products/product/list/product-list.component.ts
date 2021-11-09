@@ -39,7 +39,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.sub.add(this.productService.getProductsFilter(code, name, company).subscribe(data => {
       this.products = data;
       this.totalRecords = data.length;
-      console.log(this.products)
     }, error => {
       this.loading = false;
       console.error('Error: ' + error);

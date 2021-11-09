@@ -53,6 +53,15 @@
                 </div>
                 <div class="col-sm-3 mt-2">
                   <div>
+                    <label>{{'PRODUCT.PROVIDER' | translate}}<span class="text-danger">*</span></label>
+                  </div>
+                  <p-dropdown [options]="providers" formControlName="provider" placeholder="{{'PRODUCT.SELECT_PROVIDER' | translate}}" optionLabel="providerName" [showClear]="true"></p-dropdown>
+                  <div *ngIf="validatorService.isInvalid(form.controls['provider'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['provider']?.errors, ('PRODUCT.PROVIDER' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
                     <label>{{'PRODUCT.NET_PRICE' | translate}}</label>
                   </div>
                   <p-inputNumber formControlName="netPrice" [minFractionDigits]="2" [style]="{'width': '100%'}"></p-inputNumber>
@@ -91,8 +100,8 @@
 </form>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button pButton class="btn btn-primary"
-            (click)="saveProduct()"
-            [disabled]="!form.valid || disableButtonSave">
-      {{'PRODUCT.SAVE' | translate}}</button>
-  </div>
+  <button pButton class="btn btn-primary"
+          (click)="saveProduct()"
+          [disabled]="!form.valid || disableButtonSave">
+    {{'PRODUCT.SAVE' | translate}}</button>
+</div>
