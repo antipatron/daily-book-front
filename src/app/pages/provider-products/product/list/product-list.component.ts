@@ -56,7 +56,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   editProduct(product: Product) {
-    this.router.navigate([`provider-products/admin/product/create/${product.id}`], { state: product });
+    this.router.navigate([`provider-products/admin/product/edit/${product.id}`], { state: product });
   }
 
   ngOnDestroy(): void {

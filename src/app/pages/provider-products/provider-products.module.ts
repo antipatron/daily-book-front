@@ -16,7 +16,6 @@ import {DropdownModule} from "primeng/dropdown";
 import {ProviderListComponent} from './provider/list/provider-list/provider-list.component';
 import {ProductEditComponent} from "./product/edit/product-edit.component";
 import {ButtonModule} from "primeng/button";
-import {ProductCreateComponent} from './product/product-create/product-create.component';
 
 
 @NgModule({
@@ -25,8 +24,7 @@ import {ProductCreateComponent} from './product/product-create/product-create.co
     ProviderAdminComponent,
     ProductListComponent,
     ProductEditComponent,
-    ProviderListComponent,
-    ProductCreateComponent
+    ProviderListComponent
   ],
   imports: [
     CommonModule,

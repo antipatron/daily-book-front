@@ -11,7 +11,8 @@
     "SEARCH": "Buscar",
     "CREATE": "Crear producto",
     "CREATE_PRODUCT": "Nuevo producto",
-    "CREATE_DETAIL": "Agregar detalles",
+    "EDIT_PRODUCT": "Editar producto",
+    "ADD_DETAIL": "Agregar nuevo detalle",
     "RETURN": "Volver",
     "ID": "Id",
     "CODE": "Código",
@@ -26,7 +27,17 @@
     "IVA": "IVA",
     "SELECT_IVA": "Seleccionar IVA",
     "ACTIONS": "Acciones",
-    "SAVE": "Guardar"
+    "SAVE": "Guardar",
+    "DETAILS": {
+      "TITLE_TABLE": "Detalles",
+      "TOTAL_RECORDS": "registros",
+      "PROVIDER": "Proveedor",
+      "NET_PRICE": "Precio neto",
+      "SELL_PRICE": "Precio de venta",
+      "ACTIONS": "Acciones",
+      "ADD_DETAIL": "Agregar nuevo detalle",
+      "EDIT_DETAIL": "Editar detalle"
+    }
   },
   "PROVIDER": {
     "TITLE_TABLE": "Proveedores",
@@ -72,5 +83,12 @@
       "UNAVAILABLE": "No puede acceder a la aplicación porque el usuario no está activo o no tiene permisos o los servicios no están disponibles",
       "REQUEST_ERROR": "Hubo un problema al procesar su solicitud"
     }
+  },
+  "API_MESSAGES_RESPONSE": {
+    "REQUEST_CLIENT_EXCEPTION": "Error en la petición del cliente",
+    "BUSINESS_EXCEPTION": "Error procesando reglas de negocio",
+    "BUSINESS_EXCEPTION_PROVIDER_DUPLICATED": "El proveedor ya está asignado a otro detalle",
+    "SERVER_EXCEPTION": "Excepcion no controlada",
+    "SERVER_EXCEPTION_MESSAGE": "Hubo un problema procesando la solicitud"
   }
 }

@@ -30,8 +30,26 @@ export class ProductService {
       map(data => data.body));
   }
 
+  getProductDetailsResolver(idProduct: number): Observable<any> {
+    return this.http.get(`${urlBase}/by-id/${idProduct}`);
+  }
+
+  getProductDetails(idProduct: number): Observable<any>{
+    let result: Observable<any> = this.http.get(`${urlBase}/by-id/${idProduct}`)
+    return result.pipe(
+      filter(data => data && data.body),
+      map(data => data.body));
+  }
+
   save(productFullDto: ProductFullDto): Observable<any>{
     let result: Observable<any> = this.http.post(`${urlBase}`, productFullDto);
+    return result.pipe(
+      filter(data => data && data.body),
+      map(data => data.body));
+  }
+
+  update(productFullDto: ProductFullDto): Observable<any>{
+    let result: Observable<any> = this.http.put(`${urlBase}`, productFullDto);
     return result.pipe(
       filter(data => data && data.body),
       map(data => data.body));

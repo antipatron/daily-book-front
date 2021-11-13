@@ -1,4 +1,4 @@
-export class ProviderProductDto {
+export class ProviderProductsDto {
   id?: number;
   providerId?: number;
   productId?: number;

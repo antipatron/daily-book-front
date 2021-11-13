@@ -1,4 +1,4 @@
-import {ProviderProductDto} from "./provider-product.dto";
+import {ProviderProductsDto} from "./provider-products.dto";
 
 export class ProductDetailDto {
   id?: number;
@@ -8,5 +8,5 @@ export class ProductDetailDto {
   brandId?: number;
   ivaId?: number;
   companyId?: number;
-  productDetail?: ProviderProductDto;
+  productDetail?: ProviderProductsDto;
 }
