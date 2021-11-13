@@ -55,6 +55,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.router.navigate(['provider-products/admin/product/create/']);
   }
 
+  editProduct(product: Product) {
+    this.router.navigate([`provider-products/admin/product/create/${product.id}`], { state: product });
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }

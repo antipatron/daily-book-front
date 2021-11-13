@@ -20,13 +20,13 @@
         <div>
           <label></label>
         </div>
-        <button type="button" class="btn btn-primary" (click)="searchProducts()" pButton>{{'PRODUCT.SEARCH' | translate}}</button>
+        <button class="btn btn-primary" (click)="searchProducts()">{{'PRODUCT.SEARCH' | translate}}</button>
       </div>
       <div class="col-3">
         <div>
           <label></label>
         </div>
-        <button type="button" class="btn btn-primary float-right" (click)="createProduct()" pButton>{{'PRODUCT.CREATE' | translate}}</button>
+        <button class="btn btn-primary" (click)="createProduct()">{{'PRODUCT.CREATE' | translate}}</button>
       </div>
     </div>
   </div>
@@ -50,9 +50,7 @@
         <td>{{product.valueIva}}</td>
         <td style="width: 170px">
           <div class="row">
-            <div class="actions-table">
-
-            </div>
+            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editProduct(product)"></button>
           </div>
         </td>
       </tr>
