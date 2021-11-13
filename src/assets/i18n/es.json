@@ -37,7 +37,10 @@
       "ACTIONS": "Acciones",
       "ADD_DETAIL": "Agregar nuevo detalle",
       "EDIT_DETAIL": "Editar detalle"
-    }
+    },
+    "NAME_BRAND": "Marca",
+    "VALUE_IVA": "IVA",
+    "PROVIDER_NAME": "Nombre proveedor"
   },
   "PROVIDER": {
     "TITLE_TABLE": "Proveedores",

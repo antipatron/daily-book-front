@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Provider} from '../../../../../core/models/provider.model';
 import {ProviderService} from '../../../../../core/services/provider.service';
@@ -8,7 +8,7 @@ import {ProviderService} from '../../../../../core/services/provider.service';
   templateUrl: './provider-list.component.html',
   styleUrls: ['./provider-list.component.scss']
 })
-export class ProviderListComponent implements OnInit {
+export class ProviderListComponent implements OnInit, OnDestroy {
 
   private sub: Subscription = new Subscription();
   loading = false;
@@ -40,7 +40,7 @@ export class ProviderListComponent implements OnInit {
     this.sub.add(this.providerService.getProvidersFilter(providerName, sellerName, company).subscribe(data => {
       this.providers = data;
       this.totalRecords = data.length;
-      alert(JSON.stringify(this.providers))
+      console.log(JSON.stringify(this.providers))
     }, error => {
       this.loading = false;
       console.error('Error: ' + error);

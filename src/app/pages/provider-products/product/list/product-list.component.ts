@@ -17,6 +17,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   totalRecords = 0;
   name: any = null;
   code: any = null;
+  providerName: any =  null;
   public cols: any[] | undefined;
 
   constructor(private productService: ProductService,
@@ -29,14 +30,17 @@ export class ProductListComponent implements OnInit, OnDestroy {
       { field: 'description', header: 'DESCRIPTION', width: '140px',sort: true, align: 'left' },
       { field: 'nameBrand', header: 'NAME_BRAND', width: '140px',sort: true, align: 'left' },
       { field: 'valueIva', header: 'VALUE_IVA', width: '140px',sort: true, align: 'right' },
+      { field: 'netPrice', header: 'NET_PRICE', width: '140px',sort: true, align: 'right' },
+      { field: 'sellPrice', header: 'SELL_PRICE', width: '140px',sort: true, align: 'right' },
+      { field: 'providerName', header: 'PROVIDER_NAME', width: '140px',sort: true, align: 'right' },
       { field: 'actions', header: 'ACTIONS', width: '140px', align: 'left' },
     ];
-    this.getProductsList(this.code, this.name, 1)
+    this.getProductsList(this.code, this.name, this.providerName,1)
   }
 
-  getProductsList(code: string, name: string, company: number): void {
+  getProductsList(code: string, name: string, providerName: string, company: number): void {
     this.loading = true;
-    this.sub.add(this.productService.getProductsFilter(code, name, company).subscribe(data => {
+    this.sub.add(this.productService.getProductsFilter(code, name, providerName, company).subscribe(data => {
       this.products = data;
       this.totalRecords = data.length;
     }, error => {
@@ -48,7 +52,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   searchProducts(){
-    this.getProductsList(this.code, this.name, 1)
+    this.getProductsList(this.code, this.name, this.providerName, 1)
   }
 
   createProduct() {

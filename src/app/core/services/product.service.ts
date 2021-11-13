@@ -5,14 +5,14 @@ import {Observable} from "rxjs";
 import {filter, map} from "rxjs/operators";
 import {ProductFullDto} from "../dtos/product-full.dto";
 
-const urlBase = environment.apiServerURL + 'product';
+const urlBase = environment.apiServerURL + 'product-provider';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProductsFilter(code: string, name: string, company: number): Observable<any> {
+  getProductsFilter(code: string, name: string, providerName: string,company: number): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     let params = new HttpParams();
     if (code) {
@@ -21,6 +21,11 @@ export class ProductService {
     if (name) {
       params = params.set('name', name);
     }
+
+    if (providerName) {
+      params = params.set('provider', providerName);
+    }
+
     if (company) {
       params = params.set('company', company);
     }
