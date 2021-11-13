@@ -152,8 +152,8 @@
     <ng-template pTemplate="body" let-productDetail>
       <tr>
         <td>{{getProviderNameById(productDetail.providerId)}}</td>
-        <td>{{productDetail.netPrice}}</td>
-        <td>{{productDetail.sellPrice}}</td>
+        <td>{{productDetail.netPrice | currency:3:"$"}}</td>
+        <td>{{productDetail.sellPrice | currency:3:"$"}}</td>
         <td style="width: 170px">
           <div class="row">
             <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editDetail(productDetail)"></button>
