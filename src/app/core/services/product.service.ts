@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 import {filter, map} from "rxjs/operators";
 import {ProductFullDto} from "../dtos/product-full.dto";
 
-const urlBase = environment.apiServerURL + 'product-provider';
+const urlBase = environment.apiServerURL + 'product';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
