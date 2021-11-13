@@ -14,6 +14,9 @@
     "DESCRIPTION": "Descripción",
     "NAME_BRAND": "Marca",
     "VALUE_IVA": "IVA",
+    "NET_PRICE": "Precio neto",
+    "SELL_PRICE": "Precio venta",
+    "PROVIDER_NAME": "Nombre proveedor",
     "ACTIONS": "Acciones"
   },
   "PROVIDER": {
