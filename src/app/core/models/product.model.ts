@@ -8,4 +8,8 @@ export class Product {
   brandId?: number;
   ivaId?: number;
   companyId?: number;
+  providerProductId?: number;
+  netPrice?: number;
+  sellPrice?: number;
+  providerName?: string;
 }
