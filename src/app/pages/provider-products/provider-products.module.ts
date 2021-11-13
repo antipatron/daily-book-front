@@ -11,7 +11,11 @@ import {ProductListComponent} from './product/list/product-list.component';
 import {TableModule} from "primeng/table";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { ProviderListComponent } from './provider/list/provider-list/provider-list.component';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {DropdownModule} from "primeng/dropdown";
+import {ProviderListComponent} from './provider/list/provider-list/provider-list.component';
+import {ProductEditComponent} from "./product/edit/product-edit.component";
+import {ButtonModule} from "primeng/button";
 
 
 @NgModule({
@@ -19,6 +23,7 @@ import { ProviderListComponent } from './provider/list/provider-list/provider-li
     ProductAdminComponent,
     ProviderAdminComponent,
     ProductListComponent,
+    ProductEditComponent,
     ProviderListComponent
   ],
   imports: [
@@ -31,8 +36,11 @@ import { ProviderListComponent } from './provider/list/provider-list/provider-li
     TranslateModule,
     TableModule,
     InputTextModule,
+    InputNumberModule,
     FormsModule,
     ReactiveFormsModule,
+    DropdownModule,
+    ButtonModule,
   ]
 })
 export class ProviderProductsModule { }

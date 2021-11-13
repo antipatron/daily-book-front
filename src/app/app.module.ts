@@ -54,8 +54,8 @@ export function createTranslateLoader(http: HttpClient): any {
   ],
   providers: [
     MessageService, ConfirmationService, MenuService,
-   /* { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor,  multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpSuccessInterceptor, multi: true },*/
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor,  multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpSuccessInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

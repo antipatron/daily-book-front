@@ -22,11 +22,19 @@
         </div>
         <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="providerName" />
       </div>
-      <div class="col-3">
+      <div class="col-3" align="right">
         <div>
           <label></label>
         </div>
-        <button class="btn btn-primary" (click)="searchProducts()" pButton>{{'PRODUCT.SEARCH' | translate}}</button>
+        <button class="btn btn-primary" (click)="searchProducts()">{{'PRODUCT.SEARCH' | translate}}</button>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12" align="right">
+        <div>
+          <label></label>
+        </div>
+        <button class="btn btn-primary" (click)="createProduct()">{{'PRODUCT.CREATE' | translate}}</button>
       </div>
     </div>
   </div>
@@ -54,9 +62,7 @@
 
         <td style="width: 170px">
           <div class="row">
-            <div class="actions-table">
-
-            </div>
+            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editProduct(product)"></button>
           </div>
         </td>
       </tr>

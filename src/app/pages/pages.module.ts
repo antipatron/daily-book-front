@@ -23,6 +23,9 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {AutoCompleteModule} from "primeng/autocomplete";
 import {DropdownModule} from "primeng/dropdown";
 import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ButtonModule} from "primeng/button";
+import {InputTextModule} from "primeng/inputtext";
+import {InputNumberModule} from "primeng/inputnumber";
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
     AutoCompleteModule,
     DropdownModule,
     FormsModule,
+    ButtonModule,
     ReactiveFormsModule,
+    InputTextModule,
+    InputNumberModule,
   ],
   providers: [
     FormBuilder
