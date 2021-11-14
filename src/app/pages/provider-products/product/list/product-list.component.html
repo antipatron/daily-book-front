@@ -62,7 +62,8 @@
 
         <td style="width: 170px">
           <div class="row">
-            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editProduct(product)"></button>
+            <div class="col"><button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editProduct(product)"></button></div>
+            <div class="col"><button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="confirmDelete(product)"></button></div>
           </div>
         </td>
       </tr>

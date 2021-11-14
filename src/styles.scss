@@ -533,11 +533,6 @@ span.p-dropdown-trigger-icon.ng-tns-c119-0.pi.pi-chevron-down {
   border-color: #f56e50 !important;
 }
 
-.p-dialog .p-dialog-footer button {
-  border-radius: 50px !important;
-  min-width: 130px;
-}
-
 .p-button.p-button-outlined {
   background-color: transparent !important;
   color: #9498A5 !important;
@@ -553,33 +548,6 @@ span.p-dropdown-trigger-icon.ng-tns-c119-0.pi.pi-chevron-down {
 
 .p-button .p-button-icon-left {
   font-size: 22px !important;
-}
-
-.p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
-  font-size: 5rem !important;
-  color: #FF9A41 !important;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.p-dialog .p-dialog-header {
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-}
-
-.p-dialog .p-dialog-footer {
-  text-align: center !important;
-  border-bottom-right-radius: 15px !important;
-  border-bottom-left-radius: 15px !important;
-}
-
-.p-dialog.p-confirm-dialog .p-confirm-dialog-message {
-  padding: 0 25%;
-}
-
-.p-confirm-dialog .p-dialog-content {
-  display: grid !important;
-  text-align: center !important;
 }
 
 /* VPPs profile */

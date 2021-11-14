@@ -30,6 +30,20 @@ export class HttpSuccessInterceptor implements HttpInterceptor {
                   detail: this.translateService.instant('GENERAL_MESSAGES.DELETED')
                 });
               }
+              if(event.body.message == MESSAGES_RESPONSE.CREATED){
+                this.messageService.add({
+                  severity: 'success',
+                  summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.SUCCESS'),
+                  detail: this.translateService.instant('GENERAL_MESSAGES.CREATED')
+                });
+              }
+              if(event.body.message == MESSAGES_RESPONSE.UPDATED){
+                this.messageService.add({
+                  severity: 'success',
+                  summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.SUCCESS'),
+                  detail: this.translateService.instant('GENERAL_MESSAGES.UPDATED')
+                });
+              }
             }
           } else if (event.status === 201) {
             if (event.body.message !== undefined && event.body.message !== 'null' && event.body.message !== null) {

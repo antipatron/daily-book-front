@@ -10,6 +10,8 @@ import {ProviderService} from "../../../../core/services/provider.service";
 import {ProductService} from "../../../../core/services/product.service";
 import {ProviderProductsDto} from "../../../../core/dtos/provider-products.dto";
 import {ProductDetailDto} from "../../../../core/dtos/product-detail.dto";
+import {ConfirmationService} from "primeng/api";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-product-edit',
@@ -39,7 +41,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   constructor(private location: Location, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder,
               public readonly validatorService: ValidatorService, private readonly brandService: BrandService,
               private readonly ivaService: IvaService, private readonly providerService: ProviderService,
-              private readonly productService: ProductService) {
+              private readonly productService: ProductService, private confirmationService: ConfirmationService, private translateService: TranslateService) {
     this.form = formBuilder.group({});
   }
 
@@ -251,6 +253,30 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     } else {
       return 'PRODUCT.DETAILS.ADD_DETAIL';
     }
+  }
+
+  confirmDelete(productDetail: any){
+    this.confirmationService.confirm({
+      message: this.translateService.instant('PRODUCT.DETAILS.CONFIRMATION_MESSAGE_DELETE'),
+      header: this.translateService.instant('PRODUCT.DETAILS.CONFIRMATION_DELETE'),
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteProductDetail(productDetail)
+      },
+      reject: () => {}
+    });
+  }
+
+  deleteProductDetail(productDetail: any) {
+    /*this.loading = true;*/
+    /*    this.sub.add(this.productService.delete(product.id).subscribe(data => {
+          this.getProductsList(this.code, this.name, this.providerName,1)
+        }, error => {
+          this.loading = false;
+          console.error('Error: ' + error);
+        }, () => {
+          this.loading = false;
+        }));*/
   }
 
   ngOnDestroy(): void {
