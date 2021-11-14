@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-end mb-3">
   <a class="link" (click)="goBack()" >
     <i class="bx bx-arrow-back"></i>
-    <span class="text-decoration-underline ">{{'PRODUCT.RETURN' | translate}}</span>
+    <span class="text-decoration-underline">{{'PRODUCT.RETURN' | translate}}</span>
   </a>
 </div>
 
@@ -12,7 +12,7 @@
         <div class="card-body">
           <div class="title-page">
             <div class="content-name">
-              <span class="subtitle-page">{{getStringTranslateTitleProduct() | translate}}</span>
+              <h4 class="card-title">{{getStringTranslateTitleProduct() | translate}}</h4>
             </div>
           </div>
           <div class="row">
@@ -77,7 +77,7 @@
         <div class="card-body">
           <div class="title-page">
             <div class="content-name">
-              <span class="subtitle-page">{{getStringTranslateTitleDetailProduct() | translate}}</span>
+              <h4 class="card-title">{{getStringTranslateTitleDetailProduct() | translate}}</h4>
             </div>
           </div>
           <div class="row">
@@ -139,11 +139,11 @@
     </div>
   </div>
 
-  <p-table [value]="productDetails" responsiveLayout="scroll" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
+  <p-table [value]="productDetails" [scrollable]="true" scrollHeight="400px" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
            [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:100px">
           {{'PRODUCT.DETAILS.'+col.header | translate }}
           <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
         </th>
@@ -151,10 +151,10 @@
     </ng-template>
     <ng-template pTemplate="body" let-productDetail>
       <tr>
-        <td>{{getProviderNameById(productDetail.providerId)}}</td>
-        <td>{{productDetail.netPrice | currency:3:"$"}}</td>
-        <td>{{productDetail.sellPrice | currency:3:"$"}}</td>
-        <td style="width: 170px">
+        <td style="min-width:100px">{{getProviderNameById(productDetail.providerId)}}</td>
+        <td style="min-width:100px">{{productDetail.netPrice | currency:3:"$"}}</td>
+        <td style="min-width:100px">{{productDetail.sellPrice | currency:3:"$"}}</td>
+        <td style="min-width:100px">
           <div class="row">
             <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editDetail(productDetail)"></button>
           </div>
