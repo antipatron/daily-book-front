@@ -36,11 +36,15 @@
       "SELL_PRICE": "Precio de venta",
       "ACTIONS": "Acciones",
       "ADD_DETAIL": "Agregar nuevo detalle",
-      "EDIT_DETAIL": "Editar detalle"
+      "EDIT_DETAIL": "Editar detalle",
+      "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro?",
+      "CONFIRMATION_DELETE": "Confirmación."
     },
     "NAME_BRAND": "Marca",
     "VALUE_IVA": "IVA",
-    "PROVIDER_NAME": "Nombre proveedor"
+    "PROVIDER_NAME": "Nombre proveedor",
+    "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro? Se eliminarán todos los detalles asociados.",
+    "CONFIRMATION_DELETE": "Confirmación."
   },
   "PROVIDER": {
     "TITLE_TABLE": "Proveedores",
