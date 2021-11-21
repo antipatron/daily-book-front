@@ -59,4 +59,11 @@ export class ProductService {
       filter(data => data && data.body),
       map(data => data.body));
   }
+
+  delete(idProduct: number): Observable<any>{
+    let result: Observable<any> = this.http.delete(`${urlBase}/${idProduct}`);
+    return result.pipe(
+      filter(data => data && data.body),
+      map(data => data.body));
+  }
 }

@@ -4,6 +4,8 @@ import {Product} from "../../../../core/models/product.model";
 import {ProductService} from "../../../../core/services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProviderProductsService} from '../../../../core/services/provider-products.service';
+import {ConfirmationService} from "primeng/api";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-product-list',
@@ -21,8 +23,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   providerName: any =  null;
   public cols: any[] | undefined;
 
+
   constructor(private productService: ProductService, private providerProducts: ProviderProductsService,
-              private router: Router, private route: ActivatedRoute) { }
+              private router: Router, private route: ActivatedRoute,
+              private confirmationService: ConfirmationService, private translateService: TranslateService) { }
 
   ngOnInit(): void {
     this.cols = [
@@ -62,6 +66,30 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   editProduct(product: Product) {
     this.router.navigate([`provider-products/admin/product/edit/${product.id}`], { state: product });
+  }
+
+  confirmDelete(product: any){
+    this.confirmationService.confirm({
+      message: this.translateService.instant('PRODUCT.CONFIRMATION_MESSAGE_DELETE'),
+      header: this.translateService.instant('PRODUCT.CONFIRMATION_DELETE'),
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteProduct(product)
+      },
+      reject: () => {}
+    });
+  }
+
+  deleteProduct(product: any) {
+    this.loading = true;
+    this.sub.add(this.productService.delete(product.id).subscribe(data => {
+      this.getProductsList(this.code, this.name, this.providerName,1)
+    }, error => {
+      this.loading = false;
+      console.error('Error: ' + error);
+    }, () => {
+      this.loading = false;
+    }));
   }
 
   ngOnDestroy(): void {

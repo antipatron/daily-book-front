@@ -38,5 +38,10 @@ export class ProviderProductsService {
       map(data => data.body));
   }
 
-
+  delete(idProviderProduct: number): Observable<any>{
+    let result: Observable<any> = this.http.delete(`${urlBase}/${idProviderProduct}`);
+    return result.pipe(
+      filter(data => data && data.body),
+      map(data => data.body));
+  }
 }
