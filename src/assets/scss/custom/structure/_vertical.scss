@@ -42,12 +42,6 @@
     position: fixed;
     top: $header-height;
     border-right: 1px solid $card-border-color;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 10px 30px 0px #FC4F00;
-    -moz-box-shadow: 0 10px 30px 0px #FC4F00;
-    -webkit-box-shadow: 0 10px 30px 0px #FC4F00;
-    -o-box-shadow: 0 10px 30px 0px #FC4F00;
-    -ms-box-shadow: 0 10px 30px 0px #FC4F00;
 }
 
 .main-content {
@@ -153,7 +147,7 @@
         > li {
             &.mm-active {
                 > a {
-                    background-color: $header-dark-bg !important;
+                    background-color: $primary !important;
                     color: $white !important;
     
                     > i {
@@ -658,7 +652,7 @@ body[data-sidebar="brand"] {
                     li{
                         &.mm-active {
                             .active{
-                                color: $header-dark-bg !important;
+                                color: $sidebar-menu-item-active-color !important;
                             }
                         }
 

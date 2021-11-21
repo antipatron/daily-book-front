@@ -3,47 +3,45 @@
     <p>{{ 'PRODUCT.TITLE_TABLE' | translate }}</p>
     <span> {{totalRecords | number}} {{'PRODUCT.TOTAL_RECORDS' | translate }} </span>
 
-    <div class="row mt-2">
-      <div class="col-3">
+    <div class="row">
+      <div class="col-sm">
         <div>
           <label>{{'PRODUCT.CODE' | translate}}</label>
         </div>
         <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="code" />
       </div>
-      <div class="col-3">
+      <div class="col-sm">
         <div>
           <label>{{'PRODUCT.NAME' | translate}}</label>
         </div>
         <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="name" />
       </div>
-      <div class="col-3">
+      <div class="col-sm">
         <div>
           <label>{{'PRODUCT.PROVIDER_NAME' | translate}}</label>
         </div>
         <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="providerName" />
       </div>
-      <div class="col-3" align="right">
+      <div class="col-sm">
         <div>
-          <label></label>
+          <label>&nbsp;</label>
         </div>
         <button class="btn btn-primary" (click)="searchProducts()">{{'PRODUCT.SEARCH' | translate}}</button>
       </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-12" align="right">
+      <div class="col-sm">
         <div>
-          <label></label>
+          <label>&nbsp;</label>
         </div>
         <button class="btn btn-primary" (click)="createProduct()">{{'PRODUCT.CREATE' | translate}}</button>
       </div>
     </div>
   </div>
 
-  <p-table [value]="products" responsiveLayout="scroll" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
+  <p-table [value]="products" [scrollable]="true" scrollHeight="400px" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
            [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:100px">
           {{'PRODUCT.'+col.header | translate }}
           <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
         </th>
@@ -51,16 +49,16 @@
     </ng-template>
     <ng-template pTemplate="body" let-product>
       <tr>
-        <td>{{product.code}}</td>
-        <td>{{product.name}}</td>
-        <td>{{product.description}}</td>
-        <td>{{product.nameBrand}}</td>
-        <td>{{product.valueIva | percent }}</td>
-        <td>{{product.netPrice | currency:3:"$"}}</td>
-        <td>{{product.sellPrice| currency:3:"$"}}</td>
-        <td>{{product.providerName}}</td>
+        <td style="min-width:100px">{{product.code}}</td>
+        <td style="min-width:100px">{{product.name}}</td>
+        <td style="min-width:100px">{{product.description}}</td>
+        <td style="min-width:100px">{{product.nameBrand}}</td>
+        <td style="min-width:100px">{{product.valueIva | percent }}</td>
+        <td style="min-width:100px">{{product.netPrice | currency:3:"$"}}</td>
+        <td style="min-width:100px">{{product.sellPrice| currency:3:"$"}}</td>
+        <td style="min-width:100px">{{product.providerName}}</td>
 
-        <td style="width: 170px">
+        <td style="min-width:100px">
           <div class="row">
             <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editProduct(product)"></button>
           </div>
