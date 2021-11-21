@@ -12,6 +12,7 @@ import {ProviderProductsDto} from "../../../../core/dtos/provider-products.dto";
 import {ProductDetailDto} from "../../../../core/dtos/product-detail.dto";
 import {ConfirmationService} from "primeng/api";
 import {TranslateService} from "@ngx-translate/core";
+import {ProviderProductsService} from "../../../../core/services/provider-products.service";
 
 @Component({
   selector: 'app-product-edit',
@@ -41,7 +42,8 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   constructor(private location: Location, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder,
               public readonly validatorService: ValidatorService, private readonly brandService: BrandService,
               private readonly ivaService: IvaService, private readonly providerService: ProviderService,
-              private readonly productService: ProductService, private confirmationService: ConfirmationService, private translateService: TranslateService) {
+              private readonly productService: ProductService, private readonly providerProductsService: ProviderProductsService,
+              private confirmationService: ConfirmationService, private translateService: TranslateService) {
     this.form = formBuilder.group({});
   }
 
@@ -268,15 +270,15 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   }
 
   deleteProductDetail(productDetail: any) {
-    /*this.loading = true;*/
-    /*    this.sub.add(this.productService.delete(product.id).subscribe(data => {
-          this.getProductsList(this.code, this.name, this.providerName,1)
+    this.loading = true;
+        this.sub.add(this.providerProductsService.delete(productDetail.id).subscribe(data => {
+          this.getProductDetails(this.idProduct)
         }, error => {
           this.loading = false;
           console.error('Error: ' + error);
         }, () => {
           this.loading = false;
-        }));*/
+        }));
   }
 
   ngOnDestroy(): void {
