@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import {Product} from "../../../../core/models/product.model";
 import {ProductService} from "../../../../core/services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ProviderProductsService} from '../../../../core/services/provider-products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -20,7 +21,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   providerName: any =  null;
   public cols: any[] | undefined;
 
-  constructor(private productService: ProductService,
+  constructor(private productService: ProductService, private providerProducts: ProviderProductsService,
               private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -29,10 +30,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
       { field: 'name', header: 'NAME', width: '140px',sort: true, align: 'left' },
       { field: 'description', header: 'DESCRIPTION', width: '140px',sort: true, align: 'left' },
       { field: 'nameBrand', header: 'NAME_BRAND', width: '140px',sort: true, align: 'left' },
-      { field: 'valueIva', header: 'VALUE_IVA', width: '140px',sort: true, align: 'right' },
-      { field: 'netPrice', header: 'NET_PRICE', width: '140px',sort: true, align: 'right' },
-      { field: 'sellPrice', header: 'SELL_PRICE', width: '140px',sort: true, align: 'right' },
-      { field: 'providerName', header: 'PROVIDER_NAME', width: '140px',sort: true, align: 'right' },
+      { field: 'valueIva', header: 'VALUE_IVA', width: '140px',sort: true, align: 'left' },
+      { field: 'netPrice', header: 'NET_PRICE', width: '140px',sort: true, align: 'left' },
+      { field: 'sellPrice', header: 'SELL_PRICE', width: '140px',sort: true, align: 'left' },
+      { field: 'providerName', header: 'PROVIDER_NAME', width: '140px',sort: true, align: 'left' },
       { field: 'actions', header: 'ACTIONS', width: '140px', align: 'left' },
     ];
     this.getProductsList(this.code, this.name, this.providerName,1)
@@ -40,7 +41,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   getProductsList(code: string, name: string, providerName: string, company: number): void {
     this.loading = true;
-    this.sub.add(this.productService.getProductsFilter(code, name, providerName, company).subscribe(data => {
+    this.sub.add(this.providerProducts.getProviderProductsFilter(code, name, providerName, company).subscribe(data => {
       this.products = data;
       this.totalRecords = data.length;
     }, error => {

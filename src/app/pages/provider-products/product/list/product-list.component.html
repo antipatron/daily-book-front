@@ -37,34 +37,41 @@
     </div>
   </div>
 
-  <p-table [value]="products" [scrollable]="true" scrollHeight="400px" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
-           [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
+  <p-table [value]="products" sortMode="single" [columns]="cols"
+            rowGroupMode="rowspan" groupRowsBy="name">
+
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:100px">
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:{{col.width}}">
           {{'PRODUCT.'+col.header | translate }}
           <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product>
-      <tr>
-        <td style="min-width:100px">{{product.code}}</td>
-        <td style="min-width:100px">{{product.name}}</td>
-        <td style="min-width:100px">{{product.description}}</td>
-        <td style="min-width:100px">{{product.nameBrand}}</td>
-        <td style="min-width:100px">{{product.valueIva | percent }}</td>
-        <td style="min-width:100px">{{product.netPrice | currency:3:"$"}}</td>
-        <td style="min-width:100px">{{product.sellPrice| currency:3:"$"}}</td>
-        <td style="min-width:100px">{{product.providerName}}</td>
 
-        <td style="min-width:100px">
+
+    <ng-template pTemplate="body" let-product let-rowIndex="rowIndex" let-rowgroup="rowgroup" let-rowspan="rowspan">
+      <tr>
+        <td style="min-width:140px">{{product.code}}</td>
+        <td *ngIf="true" [attr.rowspan]="rowspan" style="min-width:140px">
+          <span class="p-text-bold p-ml-2">{{product.name}}</span>
+        </td>
+        <td style="min-width:140px">{{product.description}}</td>
+        <td style="min-width:140px">{{product.nameBrand}}</td>
+        <td style="min-width:140px">{{product.valueIva/100 | percent }}</td>
+        <td style="min-width:140px">{{product.netPrice | currency:3:"$"}}</td>
+        <td style="min-width:140px">{{product.sellPrice| currency:3:"$"}}</td>
+        <td style="min-width:140px">{{product.providerName}}</td>
+
+        <td style="min-width:140px">
           <div class="row">
             <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editProduct(product)"></button>
           </div>
         </td>
       </tr>
     </ng-template>
+
+
     <ng-template pTemplate="emptymessage">
       <tr>
         <td class="text-center" colspan="8" style="text-align: center;">
