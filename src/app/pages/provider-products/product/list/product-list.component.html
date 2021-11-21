@@ -37,8 +37,9 @@
     </div>
   </div>
 
-  <p-table [value]="products" [scrollable]="true" scrollHeight="400px" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
-           [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
+  <p-table [value]="products" sortMode="single" [columns]="cols"
+            rowGroupMode="rowspan" groupRowsBy="name">
+
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:{{col.width}}">
@@ -47,7 +48,9 @@
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product>
+
+
+    <ng-template pTemplate="body" let-product let-rowIndex="rowIndex" let-rowgroup="rowgroup" let-rowspan="rowspan">
       <tr>
         <td style="min-width:140px">{{product.code}}</td>
         <td style="min-width:140px">{{product.name}}</td>
@@ -61,10 +64,13 @@
         <td style="min-width:140px">
           <div class="row" style="margin: 0 auto">
             <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded"  (click)="editProduct(product)"></button>
+
           </div>
         </td>
       </tr>
     </ng-template>
+
+
     <ng-template pTemplate="emptymessage">
       <tr>
         <td class="text-center" colspan="8" style="text-align: center;">
