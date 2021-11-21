@@ -40,7 +40,7 @@
     },
     "NAME_BRAND": "Marca",
     "VALUE_IVA": "IVA",
-    "PROVIDER_NAME": "Nombre proveedor"
+    "PROVIDER_NAME": "Proveedor"
   },
   "PROVIDER": {
     "TITLE_TABLE": "Proveedores",
@@ -50,8 +50,8 @@
     "IDENTIFIER": "Identificador",
     "ADDRESS": "Dirección",
     "EMAIL": "Correo",
-    "PROVIDER_NAME": "Nombre Proveedor",
-    "SELLER_NAME": "Nombre Vendedor",
+    "PROVIDER_NAME": "Proveedor",
+    "SELLER_NAME": "Vendedor",
     "PHONE_ONE": "Telefono 1",
     "PHONE_TWO": "Telefono 2",
     "PHONE_THREE": "Telefono 3",
