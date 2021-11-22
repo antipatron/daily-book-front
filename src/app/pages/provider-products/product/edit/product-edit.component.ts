@@ -241,21 +241,21 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     }
   }
 
-  public getStringTranslateTitleProduct() {
-    if (this.edit) {
-      return 'PRODUCT.EDIT_PRODUCT';
-    } else {
-      return 'PRODUCT.CREATE_PRODUCT';
+    public getStringTranslateTitleProduct() {
+      if (this.edit) {
+        return 'PRODUCT.EDIT_PRODUCT';
+      } else {
+        return 'PRODUCT.CREATE_PRODUCT';
+      }
     }
-  }
 
-  public getStringTranslateTitleDetailProduct() {
-    if (this.editDetailProduct) {
-      return 'PRODUCT.DETAILS.EDIT_DETAIL';
-    } else {
-      return 'PRODUCT.DETAILS.ADD_DETAIL';
+    public getStringTranslateTitleDetailProduct() {
+      if (this.editDetailProduct) {
+        return 'PRODUCT.DETAILS.EDIT_DETAIL';
+      } else {
+        return 'PRODUCT.DETAILS.ADD_DETAIL';
+      }
     }
-  }
 
   confirmDelete(productDetail: any){
     this.confirmationService.confirm({

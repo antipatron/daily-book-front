@@ -4,6 +4,7 @@ import {ProductAdminComponent} from "./product/product-admin.component";
 import {ProviderAdminComponent} from "./provider/provider-admin.component";
 import {ProductEditComponent} from "./product/edit/product-edit.component";
 import {ProductResolverService} from "../../shared/resolver/product-resolver.service";
+import {ProviderEditComponent} from './provider/edit/provider-edit.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'admin/provider', component: ProviderAdminComponent
+  },
+  {
+    path: 'admin/provider/create', component: ProviderEditComponent
   },
 ];
 

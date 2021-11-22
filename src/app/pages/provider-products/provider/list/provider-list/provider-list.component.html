@@ -3,24 +3,31 @@
     <p>{{ 'PROVIDER.TITLE_TABLE' | translate }}</p>
     <span> {{totalRecords | number}} {{'PROVIDER.TOTAL_RECORDS' | translate }} </span>
 
-    <div class="row mt-2">
-      <div class="col-3">
+    <div class="row">
+      <div class="col-sm">
         <div>
           <label>{{'PROVIDER.PROVIDER_NAME' | translate}}</label>
         </div>
         <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="providerName" />
       </div>
-      <div class="col-3">
+      <div class="col-sm">
         <div>
           <label>{{'PROVIDER.SELLER_NAME' | translate}}</label>
         </div>
         <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="sellerName" />
       </div>
-      <div class="col-3">
+      <div class="col-sm">
         <div>
-          <label></label>
+          <label>&nbsp;</label>
         </div>
-        <button class="btn btn-primary" (click)="searchProviders()" pButton>{{'PROVIDER.SEARCH' | translate}}</button>
+        <button class="btn btn-primary" (click)="searchProviders()">{{'PROVIDER.SEARCH' | translate}}</button>
+      </div>
+
+      <div class="col-sm">
+        <div>
+          <label>&nbsp;</label>
+        </div>
+        <button class="btn btn-primary" (click)="createProvider()">{{'PROVIDER.CREATE' | translate}}</button>
       </div>
     </div>
   </div>

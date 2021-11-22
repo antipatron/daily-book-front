@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Provider} from '../../../../../core/models/provider.model';
 import {ProviderService} from '../../../../../core/services/provider.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-provider-list',
@@ -18,7 +19,8 @@ export class ProviderListComponent implements OnInit, OnDestroy {
   sellerName: any = null;
   public cols: any[] | undefined;
 
-  constructor(private providerService: ProviderService) { }
+  constructor(private providerService: ProviderService,
+              private router: Router, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     this.cols = [
@@ -53,6 +55,10 @@ export class ProviderListComponent implements OnInit, OnDestroy {
     console.log(this.providerName)
     console.log(this.sellerName)
     this.getProvidersList(this.providerName, this.sellerName, 1)
+  }
+
+  createProvider() {
+    this.router.navigate(['provider-products/admin/provider/create/']);
   }
 
   ngOnDestroy(): void {

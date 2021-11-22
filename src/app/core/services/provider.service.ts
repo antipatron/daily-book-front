@@ -3,6 +3,8 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {filter, map} from "rxjs/operators";
+import {ProductFullDto} from '../dtos/product-full.dto';
+import {ProviderDto} from '../dtos/provider.dto';
 
 const urlBase = environment.apiServerURL + 'provider';
 
@@ -28,4 +30,19 @@ export class ProviderService {
       filter(data => data && data.body),
       map(data => data.body));
   }
+
+  save(providerDto: ProviderDto): Observable<any>{
+    let result: Observable<any> = this.http.post(`${urlBase}`, providerDto);
+    return result.pipe(
+      filter(data => data && data.body),
+      map(data => data.body));
+  }
+
+  update(providerDto: ProviderDto): Observable<any>{
+    let result: Observable<any> = this.http.put(`${urlBase}`, providerDto);
+    return result.pipe(
+      filter(data => data && data.body),
+      map(data => data.body));
+  }
+
 }
