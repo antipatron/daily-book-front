@@ -59,7 +59,13 @@
     "PHONE_ONE": "Telefono 1",
     "PHONE_TWO": "Telefono 2",
     "PHONE_THREE": "Telefono 3",
-    "ACTIONS": "Acciones"
+    "ACTIONS": "Acciones",
+    "CREATE": "Crear proveedor",
+    "CREATE_PROVIDER": "Nuevo proveedor",
+    "EDIT_PROVIDER": "Editar proveedor",
+    "ADD_DETAIL": "Agregar nuevo detalle",
+    "SAVE": "Guardar",
+    "RETURN": "Volver"
   },
   "COMMON": {
     "VALIDATORS": {

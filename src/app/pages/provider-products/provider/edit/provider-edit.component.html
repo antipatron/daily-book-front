@@ -1,0 +1,119 @@
+<div class="d-flex justify-content-end mb-3">
+  <a class="link" (click)="goBack()" >
+    <i class="bx bx-arrow-back"></i>
+    <span class="text-decoration-underline">{{'PROVIDER.RETURN' | translate}}</span>
+  </a>
+</div>
+
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="title-page">
+            <div class="content-name">
+              <h4 class="card-title">{{getStringTranslateTitleProduct() | translate}}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row mt-4">
+                <div class="col-sm-3 mt-2" style="display:none;">
+                  <div>
+                    <label>{{'PROVIDER.ID' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="id" readonly="true" />
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.IDENTIFIER' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="identifier"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['identifier'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['identifier']?.errors, ('PROVIDER.IDENTIFIER' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.ADDRESS' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="address"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['address'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['address']?.errors, ('PROVIDER.ADDRESS' | translate))}}</small>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.EMAIL' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="email" formControlName="email"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['email'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['email']?.errors, ('PROVIDER.EMAIL' | translate))}}</small>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.PROVIDER_NAME' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="providerName"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['providerName'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['providerName']?.errors, ('PROVIDER.PROVIDER_NAME' | translate))}}</small>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.SELLER_NAME' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="sellerName"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['sellerName'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['sellerName']?.errors, ('PROVIDER.SELLER_NAME' | translate))}}</small>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.PHONE_ONE' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="phone1"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['phone1'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['phone1']?.errors, ('PROVIDER.PHONE_ONE' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.PHONE_TWO' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="phone2"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['phone2'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['phone2']?.errors, ('PROVIDER.PHONE_TWO' | translate))}}</small>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div>
+                    <label>{{'PROVIDER.PHONE_THREE' | translate}}</label>
+                  </div>
+                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="phone3"/>
+                  <div *ngIf="validatorService.isInvalid(form.controls['phone3'])" class="invalid">
+                    <small class="text-danger">{{validatorService.getValidationMessage(form.controls['phone3']?.errors, ('PROVIDER.PHONE_THREE' | translate))}}</small>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary" (click)="saveProvider()" [disabled]="!form.valid || disableButtonSave">
+    {{'PROVIDER.SAVE' | translate}}</button>
+</div>
+
+
