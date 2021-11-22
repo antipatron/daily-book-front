@@ -3,6 +3,8 @@ import {Subscription} from 'rxjs';
 import {Provider} from '../../../../../core/models/provider.model';
 import {ProviderService} from '../../../../../core/services/provider.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ConfirmationService} from "primeng/api";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-provider-list',
@@ -20,7 +22,8 @@ export class ProviderListComponent implements OnInit, OnDestroy {
   public cols: any[] | undefined;
 
   constructor(private providerService: ProviderService,
-              private router: Router, private route: ActivatedRoute,) { }
+              private router: Router, private route: ActivatedRoute,
+              private confirmationService: ConfirmationService, private translateService: TranslateService) { }
 
   ngOnInit(): void {
     this.cols = [
@@ -42,7 +45,6 @@ export class ProviderListComponent implements OnInit, OnDestroy {
     this.sub.add(this.providerService.getProvidersFilter(providerName, sellerName, company).subscribe(data => {
       this.providers = data;
       this.totalRecords = data.length;
-      console.log(JSON.stringify(this.providers))
     }, error => {
       this.loading = false;
       console.error('Error: ' + error);
@@ -52,13 +54,35 @@ export class ProviderListComponent implements OnInit, OnDestroy {
   }
 
   searchProviders(){
-    console.log(this.providerName)
-    console.log(this.sellerName)
     this.getProvidersList(this.providerName, this.sellerName, 1)
   }
 
   createProvider() {
     this.router.navigate(['provider-products/admin/provider/create/']);
+  }
+
+  confirmDelete(provider: any){
+    this.confirmationService.confirm({
+      message: this.translateService.instant('PROVIDER.CONFIRMATION_MESSAGE_DELETE'),
+      header: this.translateService.instant('PROVIDER.CONFIRMATION_DELETE'),
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteProvider(provider)
+      },
+      reject: () => {}
+    });
+  }
+
+  deleteProvider(provider: any) {
+    this.loading = true;
+    this.sub.add(this.providerService.delete(provider.id).subscribe(data => {
+      this.getProvidersList(this.providerName, this.sellerName, 1)
+    }, error => {
+      this.loading = false;
+      console.error('Error: ' + error);
+    }, () => {
+      this.loading = false;
+    }));
   }
 
   ngOnDestroy(): void {

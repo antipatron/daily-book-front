@@ -65,7 +65,9 @@
     "EDIT_PROVIDER": "Editar proveedor",
     "ADD_DETAIL": "Agregar nuevo detalle",
     "SAVE": "Guardar",
-    "RETURN": "Volver"
+    "RETURN": "Volver",
+    "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro?",
+    "CONFIRMATION_DELETE": "Confirmación."
   },
   "COMMON": {
     "VALIDATORS": {
