@@ -17,6 +17,7 @@ import {ProviderListComponent} from './provider/list/provider-list/provider-list
 import {ProductEditComponent} from "./product/edit/product-edit.component";
 import {ButtonModule} from "primeng/button";
 import { ProviderEditComponent } from './provider/edit/provider-edit.component';
+import {DialogModule} from "primeng/dialog";
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ProviderEditComponent } from './provider/edit/provider-edit.component';
     ReactiveFormsModule,
     DropdownModule,
     ButtonModule,
+    DialogModule
   ]
 })
 export class ProviderProductsModule { }

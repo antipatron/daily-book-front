@@ -52,7 +52,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       { field: 'provider', header: 'PROVIDER', width: '140px', sort: true, align: 'left' },
       { field: 'netPrice', header: 'NET_PRICE', width: '140px',sort: true, align: 'left' },
       { field: 'sellPrice', header: 'SELL_PRICE', width: '140px',sort: true, align: 'left' },
-      { field: 'actions', header: 'ACTIONS', width: '140px', align: 'left' },
+      { field: 'actions', header: 'ACTIONS', width: '160px', align: 'left' },
     ];
     this.initializeForm();
     this.receiveDataToUpdate();

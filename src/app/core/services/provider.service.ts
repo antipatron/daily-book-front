@@ -45,4 +45,11 @@ export class ProviderService {
       map(data => data.body));
   }
 
+  delete(idProvider: number): Observable<any>{
+    let result: Observable<any> = this.http.delete(`${urlBase}/${idProvider}`);
+    return result.pipe(
+      filter(data => data && data.body),
+      map(data => data.body));
+  }
+
 }

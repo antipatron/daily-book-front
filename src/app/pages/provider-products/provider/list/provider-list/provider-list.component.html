@@ -32,11 +32,11 @@
     </div>
   </div>
 
-  <p-table [value]="providers" responsiveLayout="scroll" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
+  <p-table [value]="providers" [scrollable]="true" scrollHeight="400px" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
            [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:{{col.width}}; width:{{col.width}}">
           {{'PROVIDER.'+col.header | translate }}
           <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
         </th>
@@ -44,20 +44,15 @@
     </ng-template>
     <ng-template pTemplate="body" let-provider>
       <tr>
-        <td>{{provider.identifier}}</td>
-        <td>{{provider.address}}</td>
-        <td>{{provider.email}}</td>
-        <td>{{provider.providerName}}</td>
-        <td>{{provider.sellerName}}</td>
-        <td>{{provider.phone1}}</td>
-        <td>{{provider.phone2}}</td>
-        <td>{{provider.phone3}}</td>
+        <td style="min-width:140px; width:140px">{{provider.identifier}}</td>
+        <td style="min-width:140px; width:140px">{{provider.providerName}}</td>
+        <td style="min-width:140px; width:140px">{{provider.sellerName}}</td>
+        <td style="min-width:140px; width:140px">{{provider.phone1}}</td>
 
-        <td style="width: 170px">
+        <td style="min-width:100px; width:160px">
           <div class="row">
-            <div class="actions-table">
-
-            </div>
+            <div class="col"><button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-outlined p-button-danger" (click)="confirmDelete(provider)"></button></div>
+            <div class="col"><button pButton pRipple type="button" icon="pi pi-eye" class="p-button-rounded p-button-outlined p-button-success" (click)="openDialog(provider)"></button></div>
           </div>
         </td>
       </tr>
@@ -71,3 +66,59 @@
     </ng-template>
   </p-table>
 </div>
+
+<p-dialog *ngIf="displayDialog" header="{{'PROVIDER.TITLE_DIALOG' | translate}}" [(visible)]="displayDialog" closeOnEscape="true"
+          [draggable]="false" [resizable]="false" [style]="{width: '60vw'}" [contentStyle]="{'max-height':'500px'}" [transitionOptions]="'400ms'" [closable]="true">
+  <div class="info-resume">
+    <div class="row">
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.IDENTIFIER' | translate}}</p>
+        <h4>{{providerSelected.identifier}}
+          <span *ngIf="!providerSelected.identifier">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.ADDRESS' | translate}}</p>
+        <h4>{{providerSelected.address}}
+          <span *ngIf="!providerSelected.address">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.EMAIL' | translate}}</p>
+        <h4>{{providerSelected.email}}
+          <span *ngIf="!providerSelected.email">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.PROVIDER_NAME' | translate}}</p>
+        <h4>{{providerSelected.providerName}}
+          <span *ngIf="!providerSelected.providerName">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.SELLER_NAME' | translate}}</p>
+        <h4>{{providerSelected.sellerName}}
+          <span *ngIf="!providerSelected.sellerName">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.PHONE_ONE' | translate}}</p>
+        <h4>{{providerSelected.phone1}}
+          <span *ngIf="!providerSelected.phone1">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.PHONE_TWO' | translate}}</p>
+        <h4>{{providerSelected.phone2}}
+          <span *ngIf="!providerSelected.phone2">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PROVIDER.PHONE_THREE' | translate}}</p>
+        <h4>{{providerSelected.phone3}}
+          <span *ngIf="!providerSelected.phone3">-</span>
+        </h4>
+      </div>
+    </div>
+  </div>
+</p-dialog>
