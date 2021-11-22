@@ -20,6 +20,8 @@ export class ProviderListComponent implements OnInit, OnDestroy {
   providerName: any = null;
   sellerName: any = null;
   public cols: any[] | undefined;
+  displayDialog= false;
+  providerSelected = new Provider();
 
   constructor(private providerService: ProviderService,
               private router: Router, private route: ActivatedRoute,
@@ -28,14 +30,10 @@ export class ProviderListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.cols = [
       { field: 'identifier', header: 'IDENTIFIER', width: '140px', sort: true, align: 'left' },
-      { field: 'address', header: 'ADDRESS', width: '140px',sort: true, align: 'left' },
-      { field: 'email', header: 'EMAIL', width: '140px',sort: true, align: 'left' },
       { field: 'providerName', header: 'PROVIDER_NAME', width: '140px',sort: true, align: 'left' },
       { field: 'sellerName', header: 'SELLER_NAME', width: '140px',sort: true, align: 'right' },
       { field: 'phone1', header: 'PHONE_ONE', width: '140px',sort: true, align: 'right' },
-      { field: 'phone2', header: 'PHONE_TWO', width: '140px',sort: true, align: 'right' },
-      { field: 'phone3', header: 'PHONE_THREE', width: '140px',sort: true, align: 'right' },
-      { field: 'actions', header: 'ACTIONS', width: '140px', align: 'left' },
+      { field: 'actions', header: 'ACTIONS', width: '160px', align: 'left' },
     ];
     this.getProvidersList(this.providerName, this.sellerName, 1);
   }
@@ -85,8 +83,12 @@ export class ProviderListComponent implements OnInit, OnDestroy {
     }));
   }
 
+  openDialog(provider: Provider) {
+    this.displayDialog = true;
+    this.providerSelected = provider;
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
-
 }

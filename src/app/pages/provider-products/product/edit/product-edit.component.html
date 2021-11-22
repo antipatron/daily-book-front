@@ -143,7 +143,7 @@
            [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:100px">
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:{{col.width}}; width:{{col.width}}">
           {{'PRODUCT.DETAILS.'+col.header | translate }}
           <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
         </th>
@@ -151,13 +151,13 @@
     </ng-template>
     <ng-template pTemplate="body" let-productDetail>
       <tr>
-        <td style="min-width:100px">{{getProviderNameById(productDetail.providerId)}}</td>
-        <td style="min-width:100px">{{productDetail.netPrice | currency:3:"$"}}</td>
-        <td style="min-width:100px">{{productDetail.sellPrice | currency:3:"$"}}</td>
-        <td style="min-width:100px">
+        <td style="min-width:140px; width:140px">{{getProviderNameById(productDetail.providerId)}}</td>
+        <td style="min-width:140px; width:140px">{{productDetail.netPrice | currency:3:"$"}}</td>
+        <td style="min-width:140px; width:140px">{{productDetail.sellPrice | currency:3:"$"}}</td>
+        <td style="min-width:140px; width:160px">
           <div class="row">
-            <div class="col"><button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" (click)="editDetail(productDetail)"></button></div>
-            <div class="col"><button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="confirmDelete(productDetail)"></button></div>
+            <div class="col-sm"><button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-outlined p-button-primary" (click)="editDetail(productDetail)"></button></div>
+            <div class="col-sm"><button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-outlined p-button-danger" (click)="confirmDelete(productDetail)"></button></div>
           </div>
         </td>
       </tr>

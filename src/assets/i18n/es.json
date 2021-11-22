@@ -44,7 +44,8 @@
     "VALUE_IVA": "IVA",
     "PROVIDER_NAME": "Proveedor",
     "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro? Se eliminarán todos los detalles asociados.",
-    "CONFIRMATION_DELETE": "Confirmación."
+    "CONFIRMATION_DELETE": "Confirmación.",
+    "TITLE_DIALOG": "Producto"
   },
   "PROVIDER": {
     "TITLE_TABLE": "Proveedores",
@@ -67,7 +68,8 @@
     "SAVE": "Guardar",
     "RETURN": "Volver",
     "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro?",
-    "CONFIRMATION_DELETE": "Confirmación."
+    "CONFIRMATION_DELETE": "Confirmación.",
+    "TITLE_DIALOG": "Proveedor"
   },
   "COMMON": {
     "VALIDATORS": {

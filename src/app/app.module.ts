@@ -19,6 +19,7 @@ import {ConfirmationService, MessageService} from 'primeng/api';
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {MenuService} from './core/menu/menu.service';
 import {TrimOnBlurModule} from "ng2-trim-on-blur";
+import {DialogModule} from "primeng/dialog";
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -50,7 +51,8 @@ export function createTranslateLoader(http: HttpClient): any {
     ToastrModule.forRoot(),
     ToastModule,
     ConfirmDialogModule,
-    TrimOnBlurModule
+    TrimOnBlurModule,
+    DialogModule
   ],
   providers: [
     MessageService, ConfirmationService, MenuService,

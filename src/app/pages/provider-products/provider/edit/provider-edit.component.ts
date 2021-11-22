@@ -3,11 +3,8 @@ import {Subscription} from 'rxjs';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ValidatorService} from '../../../../shared/validator/validator.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ProviderProductsDto} from '../../../../core/dtos/provider-products.dto';
-import {ProductDetailDto} from '../../../../core/dtos/product-detail.dto';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {ProviderDto} from '../../../../core/dtos/provider.dto';
-import {ProductService} from '../../../../core/services/product.service';
 import {ProviderService} from '../../../../core/services/provider.service';
 
 @Component({
