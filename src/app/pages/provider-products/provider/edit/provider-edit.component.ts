@@ -18,6 +18,10 @@ export class ProviderEditComponent implements OnInit, OnDestroy {
   editDetailProduct = false;
   form: FormGroup;
   disableButtonSave = false;
+  idProvider: any;
+  providerSelected: any;
+
+
 
   constructor(private location: Location, private router: Router, private route: ActivatedRoute,
               private formBuilder: FormBuilder, public readonly validatorService: ValidatorService,
@@ -29,6 +33,7 @@ export class ProviderEditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.receiveDataToUpdate();
   }
 
   saveProvider(){
@@ -69,6 +74,35 @@ export class ProviderEditComponent implements OnInit, OnDestroy {
       phone1: [null],
       phone2: [null],
       phone3: [null]
+    });
+  }
+
+  receiveDataToUpdate(): void {
+    this.route.params.subscribe((params) => {
+      if(params){
+        this.idProvider = params.idProvider;
+      }
+    });
+    this.route.data.subscribe(d => {
+      if (d.provider) {
+        this.providerSelected = d.provider;
+        this.edit = true;
+        this.setForm();
+      }
+    });
+  }
+
+  setForm() {
+    this.form.setValue({
+      id: this.providerSelected?.id,
+      identifier: this.providerSelected?.identifier,
+      address: this.providerSelected?.address,
+      email: this.providerSelected?.email,
+      providerName: this.providerSelected?.providerName,
+      sellerName: this.providerSelected?.sellerName,
+      phone1: this.providerSelected?.phone1,
+      phone2: this.providerSelected?.phone2,
+      phone3: this.providerSelected?.phone3
     });
   }
 
