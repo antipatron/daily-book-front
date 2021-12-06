@@ -1,10 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {Provider} from '../../../../../core/models/provider.model';
 import {ProviderService} from '../../../../../core/services/provider.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ConfirmationService} from "primeng/api";
 import {TranslateService} from "@ngx-translate/core";
+
 
 @Component({
   selector: 'app-provider-list',
@@ -51,6 +52,8 @@ export class ProviderListComponent implements OnInit, OnDestroy {
     }));
   }
 
+
+
   searchProviders(){
     this.getProvidersList(this.providerName, this.sellerName, 1)
   }
@@ -86,6 +89,10 @@ export class ProviderListComponent implements OnInit, OnDestroy {
   openDialog(provider: Provider) {
     this.displayDialog = true;
     this.providerSelected = provider;
+  }
+
+  editProvider(provider: Provider) {
+    this.router.navigate([`provider-products/admin/provider/edit/${provider.id}`], { state: provider });
   }
 
   ngOnDestroy(): void {

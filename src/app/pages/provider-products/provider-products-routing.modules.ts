@@ -5,6 +5,7 @@ import {ProviderAdminComponent} from "./provider/provider-admin.component";
 import {ProductEditComponent} from "./product/edit/product-edit.component";
 import {ProductResolverService} from "../../shared/resolver/product-resolver.service";
 import {ProviderEditComponent} from './provider/edit/provider-edit.component';
+import {ProviderResolverService} from '../../shared/resolver/provider-resolver.service';
 
 const routes: Routes = [
   {
@@ -24,6 +25,12 @@ const routes: Routes = [
   },
   {
     path: 'admin/provider/create', component: ProviderEditComponent
+  },
+  {
+    path: 'admin/provider/edit/:idProvider', component: ProviderEditComponent,
+    resolve: {
+      provider: ProviderResolverService
+    }
   },
 ];
 

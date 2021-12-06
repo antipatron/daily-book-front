@@ -1,9 +1,8 @@
-import {environment} from "../../../environments/environment";
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {filter, map} from "rxjs/operators";
-import {ProductFullDto} from '../dtos/product-full.dto';
+import {environment} from '../../../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
 import {ProviderDto} from '../dtos/provider.dto';
 
 const urlBase = environment.apiServerURL + 'provider';
@@ -29,6 +28,10 @@ export class ProviderService {
     return result.pipe(
       filter(data => data && data.body),
       map(data => data.body));
+  }
+
+  getProviderResolver(idProduct: number): Observable<any> {
+    return this.http.get(`${urlBase}/by-id/${idProduct}`);
   }
 
   save(providerDto: ProviderDto): Observable<any>{
