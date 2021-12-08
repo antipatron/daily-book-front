@@ -18,6 +18,7 @@ import {ProductEditComponent} from "./product/edit/product-edit.component";
 import {ButtonModule} from "primeng/button";
 import { ProviderEditComponent } from './provider/edit/provider-edit.component';
 import {DialogModule} from "primeng/dialog";
+import {TrimOnBlurModule} from "ng2-trim-on-blur";
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import {DialogModule} from "primeng/dialog";
     FormsModule,
     ReactiveFormsModule,
     DropdownModule,
+    TrimOnBlurModule,
     ButtonModule,
     DialogModule
   ]
