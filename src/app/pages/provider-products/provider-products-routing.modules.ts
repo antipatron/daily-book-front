@@ -27,7 +27,7 @@ const routes: Routes = [
     path: 'admin/provider/create', component: ProviderEditComponent
   },
   {
-    path: 'admin/provider/edit/:idProvider', component: ProviderEditComponent,
+      path: 'admin/provider/edit/:idProvider', component: ProviderEditComponent,
     resolve: {
       provider: ProviderResolverService
     }

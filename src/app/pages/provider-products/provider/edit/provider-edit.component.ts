@@ -3,7 +3,7 @@ import {Subscription} from 'rxjs';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ValidatorService} from '../../../../shared/validator/validator.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProviderDto} from '../../../../core/dtos/provider.dto';
 import {ProviderService} from '../../../../core/services/provider.service';
 
@@ -69,8 +69,8 @@ export class ProviderEditComponent implements OnInit, OnDestroy {
       identifier: [null],
       address: [null],
       email: [null],
-      providerName: [null],
-      sellerName: [null],
+      providerName: [null, Validators.required],
+      sellerName: [null, Validators.required],
       phone1: [null],
       phone2: [null],
       phone3: [null]

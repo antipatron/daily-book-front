@@ -1,18 +1,18 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
-import {Location} from "@angular/common";
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ValidatorService} from "../../../../shared/validator/validator.service";
-import {BrandService} from "../../../../core/services/brand.service";
-import {IvaService} from "../../../../core/services/iva.service";
-import {ProviderService} from "../../../../core/services/provider.service";
-import {ProductService} from "../../../../core/services/product.service";
-import {ProviderProductsDto} from "../../../../core/dtos/provider-products.dto";
-import {ProductDetailDto} from "../../../../core/dtos/product-detail.dto";
-import {ConfirmationService} from "primeng/api";
-import {TranslateService} from "@ngx-translate/core";
-import {ProviderProductsService} from "../../../../core/services/provider-products.service";
+import {Subscription} from 'rxjs';
+import {Location} from '@angular/common';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ValidatorService} from '../../../../shared/validator/validator.service';
+import {BrandService} from '../../../../core/services/brand.service';
+import {IvaService} from '../../../../core/services/iva.service';
+import {ProviderService} from '../../../../core/services/provider.service';
+import {ProductService} from '../../../../core/services/product.service';
+import {ProviderProductsDto} from '../../../../core/dtos/provider-products.dto';
+import {ProductDetailDto} from '../../../../core/dtos/product-detail.dto';
+import {ConfirmationService} from 'primeng/api';
+import {TranslateService} from '@ngx-translate/core';
+import {ProviderProductsService} from '../../../../core/services/provider-products.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -241,21 +241,21 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     }
   }
 
-    public getStringTranslateTitleProduct() {
-      if (this.edit) {
-        return 'PRODUCT.EDIT_PRODUCT';
-      } else {
-        return 'PRODUCT.CREATE_PRODUCT';
-      }
+  public getStringTranslateTitleProduct() {
+    if (this.edit) {
+      return 'PRODUCT.EDIT_PRODUCT';
+    } else {
+      return 'PRODUCT.CREATE_PRODUCT';
     }
+  }
 
-    public getStringTranslateTitleDetailProduct() {
-      if (this.editDetailProduct) {
-        return 'PRODUCT.DETAILS.EDIT_DETAIL';
-      } else {
-        return 'PRODUCT.DETAILS.ADD_DETAIL';
-      }
+  public getStringTranslateTitleDetailProduct() {
+    if (this.editDetailProduct) {
+      return 'PRODUCT.DETAILS.EDIT_DETAIL';
+    } else {
+      return 'PRODUCT.DETAILS.ADD_DETAIL';
     }
+  }
 
   confirmDelete(productDetail: any){
     this.confirmationService.confirm({
@@ -271,14 +271,14 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
   deleteProductDetail(productDetail: any) {
     this.loading = true;
-        this.sub.add(this.providerProductsService.delete(productDetail.id).subscribe(data => {
-          this.getProductDetails(this.idProduct)
-        }, error => {
-          this.loading = false;
-          console.error('Error: ' + error);
-        }, () => {
-          this.loading = false;
-        }));
+    this.sub.add(this.providerProductsService.delete(productDetail.id).subscribe(data => {
+      this.getProductDetails(this.idProduct)
+    }, error => {
+      this.loading = false;
+      console.error('Error: ' + error);
+    }, () => {
+      this.loading = false;
+    }));
   }
 
   ngOnDestroy(): void {

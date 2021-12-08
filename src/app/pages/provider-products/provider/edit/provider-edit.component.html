@@ -55,7 +55,7 @@
 
                 <div class="col-sm-3 mt-2">
                   <div>
-                    <label>{{'PROVIDER.PROVIDER_NAME' | translate}}</label>
+                    <label>{{'PROVIDER.PROVIDER_NAME' | translate}}<span class="text-danger">*</span></label>
                   </div>
                   <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="providerName"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['providerName'])" class="invalid">
@@ -65,7 +65,7 @@
 
                 <div class="col-sm-3 mt-2">
                   <div>
-                    <label>{{'PROVIDER.SELLER_NAME' | translate}}</label>
+                    <label>{{'PROVIDER.SELLER_NAME' | translate}}<span class="text-danger">*</span></label>
                   </div>
                   <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="sellerName"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['sellerName'])" class="invalid">
