@@ -1,12 +1,35 @@
-.inline{
-  display:inline-block;
+@import url('https://fonts.googleapis.com/css?family=Coiny');
+
+
+body {
+  background: #ffffff;
+}
+.cloud-text {
+  font-family: 'Coiny', cursive;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: url(https://www.profedeele.es/wp-content/uploads/h5p/content/1009/images/file-5e9d51a823024.jpg);
+  background-size: auto;
+  background-attachment: unset;
+  background-position: 0%;
+  width: 80%;
+  margin: 10%;
+  font-size: 110px;
+  animation: clouds-moving infinite 220s;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  animation-timing-function: linear;
+  text-align: center;
+}
+@keyframes clouds-moving {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
 }
 
-.loading {
-  background-color: rgba(0,0,0,0.2);
-}
-
-.loading-spin{
-  font-size: 2rem;
-  position: relative;
-}
