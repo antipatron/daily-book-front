@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Constants} from "../../shared/utilities/constants";
 
 @Component({
   selector: 'app-footer',
@@ -10,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
  * Footer Component
  */
 export class FooterComponent implements OnInit {
+
+  TEAM_URL = Constants.TEAM_URL;
+
   constructor() {}
   /***
    * Current year

@@ -33,3 +33,26 @@ body {
   }
 }
 
+@media (min-width:340px) and (max-width: 400px) {
+  .cloud-text {
+    font-size: 40px;
+  }
+}
+
+@media (min-width:401px) and (max-width: 500px) {
+  .cloud-text {
+    font-size: 50px;
+  }
+}
+
+@media (min-width:501px) and (max-width: 700px) {
+  .cloud-text {
+    font-size: 60px;
+  }
+}
+
+@media (min-width:701px) and (max-width: 800px) {
+  .cloud-text {
+    font-size: 90px;
+  }
+}
