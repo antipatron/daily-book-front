@@ -28,7 +28,7 @@
                   <div>
                     <label>{{'PROVIDER.IDENTIFIER' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="identifier"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="text" formControlName="identifier"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['identifier'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['identifier']?.errors, ('PROVIDER.IDENTIFIER' | translate))}}</small>
                   </div>
@@ -37,7 +37,7 @@
                   <div>
                     <label>{{'PROVIDER.ADDRESS' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="address"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="text" formControlName="address"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['address'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['address']?.errors, ('PROVIDER.ADDRESS' | translate))}}</small>
                   </div>
@@ -47,7 +47,7 @@
                   <div>
                     <label>{{'PROVIDER.EMAIL' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="email" formControlName="email"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="email" formControlName="email"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['email'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['email']?.errors, ('PROVIDER.EMAIL' | translate))}}</small>
                   </div>
@@ -57,7 +57,7 @@
                   <div>
                     <label>{{'PROVIDER.PROVIDER_NAME' | translate}}<span class="text-danger">*</span></label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="providerName"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="text" formControlName="providerName"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['providerName'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['providerName']?.errors, ('PROVIDER.PROVIDER_NAME' | translate))}}</small>
                   </div>
@@ -67,7 +67,7 @@
                   <div>
                     <label>{{'PROVIDER.SELLER_NAME' | translate}}<span class="text-danger">*</span></label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="sellerName"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="text" formControlName="sellerName"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['sellerName'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['sellerName']?.errors, ('PROVIDER.SELLER_NAME' | translate))}}</small>
                   </div>
@@ -77,7 +77,7 @@
                   <div>
                     <label>{{'PROVIDER.PHONE_ONE' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="phone1"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur [maxlength]="15" type="text" formControlName="phone1"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['phone1'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['phone1']?.errors, ('PROVIDER.PHONE_ONE' | translate))}}</small>
                   </div>
@@ -86,7 +86,7 @@
                   <div>
                     <label>{{'PROVIDER.PHONE_TWO' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="phone2"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur [maxlength]="15" type="text" formControlName="phone2"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['phone2'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['phone2']?.errors, ('PROVIDER.PHONE_TWO' | translate))}}</small>
                   </div>
@@ -95,7 +95,7 @@
                   <div>
                     <label>{{'PROVIDER.PHONE_THREE' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="phone3"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur [maxlength]="15" type="text" formControlName="phone3"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['phone3'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['phone3']?.errors, ('PROVIDER.PHONE_THREE' | translate))}}</small>
                   </div>

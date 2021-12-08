@@ -3,7 +3,7 @@ import {Subscription} from 'rxjs';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ValidatorService} from '../../../../shared/validator/validator.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProviderDto} from '../../../../core/dtos/provider.dto';
 import {ProviderService} from '../../../../core/services/provider.service';
 
@@ -25,7 +25,7 @@ export class ProviderEditComponent implements OnInit, OnDestroy {
 
   constructor(private location: Location, private router: Router, private route: ActivatedRoute,
               private formBuilder: FormBuilder, public readonly validatorService: ValidatorService,
-              private readonly providerService: ProviderService,
+              private readonly providerService: ProviderService
   ) {
     this.form = formBuilder.group({});
 
@@ -35,6 +35,8 @@ export class ProviderEditComponent implements OnInit, OnDestroy {
     this.initializeForm();
     this.receiveDataToUpdate();
   }
+
+
 
   saveProvider(){
     this.disableButtonSave = true;
@@ -68,7 +70,7 @@ export class ProviderEditComponent implements OnInit, OnDestroy {
       id: [null],
       identifier: [null],
       address: [null],
-      email: [null],
+      email: [null, Validators.pattern('^[_a-zA-Z0-9]+(\\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{2,4})$')],
       providerName: [null, Validators.required],
       sellerName: [null, Validators.required],
       phone1: [null],

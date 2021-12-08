@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {ProviderService} from '../../core/services/provider.service';
 import {ProviderDto} from '../../core/dtos/provider.dto';
