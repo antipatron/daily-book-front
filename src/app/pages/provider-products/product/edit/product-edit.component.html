@@ -28,7 +28,7 @@
                   <div>
                     <label>{{'PRODUCT.CODE' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="code"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="text" formControlName="code"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['code'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['code']?.errors, ('PRODUCT.CODE' | translate))}}</small>
                   </div>
@@ -37,7 +37,7 @@
                   <div>
                     <label>{{'PRODUCT.NAME' | translate}}<span class="text-danger">*</span></label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="name"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="text" formControlName="name"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['name'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['name']?.errors, ('PRODUCT.NAME' | translate))}}</small>
                   </div>
@@ -46,7 +46,7 @@
                   <div>
                     <label>{{'PRODUCT.DESCRIPTION' | translate}}</label>
                   </div>
-                  <input style="width: 100%;" class="form-control" pInputText type="text" formControlName="description"/>
+                  <input style="width: 100%;" class="form-control" pInputText trimOnBlur type="text" formControlName="description"/>
                   <div *ngIf="validatorService.isInvalid(form.controls['description'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['description']?.errors, ('PRODUCT.DESCRIPTION' | translate))}}</small>
                   </div>
@@ -87,7 +87,7 @@
                   <div>
                     <label>{{'PRODUCT.PROVIDER' | translate}}<span class="text-danger">*</span></label>
                   </div>
-                  <p-dropdown [options]="providers" formControlName="provider" placeholder="{{'PRODUCT.SELECT_PROVIDER' | translate}}" optionLabel="providerName" [showClear]="true"></p-dropdown>
+                  <p-dropdown appendTo="body" [options]="providers" formControlName="provider" placeholder="{{'PRODUCT.SELECT_PROVIDER' | translate}}" optionLabel="providerName" [showClear]="true"></p-dropdown>
                   <div *ngIf="validatorService.isInvalid(form.controls['provider'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['provider']?.errors, ('PRODUCT.PROVIDER' | translate))}}</small>
                   </div>
@@ -96,7 +96,7 @@
                   <div>
                     <label>{{'PRODUCT.NET_PRICE' | translate}}</label>
                   </div>
-                  <p-inputNumber formControlName="netPrice" [minFractionDigits]="2" [style]="{'width': '100%'}"></p-inputNumber>
+                  <p-inputNumber formControlName="netPrice" [minFractionDigits]="2" [maxlength]="16" [style]="{'width': '100%'}"></p-inputNumber>
                   <div *ngIf="validatorService.isInvalid(form.controls['netPrice'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['netPrice']?.errors, ('PRODUCT.NET_PRICE' | translate))}}</small>
                   </div>
@@ -105,7 +105,7 @@
                   <div>
                     <label>{{'PRODUCT.SELL_PRICE' | translate}}</label>
                   </div>
-                  <p-inputNumber formControlName="sellPrice" [minFractionDigits]="2" [style]="{'width': '100%'}"></p-inputNumber>
+                  <p-inputNumber formControlName="sellPrice" [minFractionDigits]="2" [maxlength]="16" [style]="{'width': '100%'}"></p-inputNumber>
                   <div *ngIf="validatorService.isInvalid(form.controls['sellPrice'])" class="invalid">
                     <small class="text-danger">{{validatorService.getValidationMessage(form.controls['sellPrice']?.errors, ('PRODUCT.SELL_PRICE' | translate))}}</small>
                   </div>
