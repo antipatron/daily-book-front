@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {Provider} from '../../../../../core/models/provider.model';
 import {ProviderService} from '../../../../../core/services/provider.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ConfirmationService} from "primeng/api";
-import {TranslateService} from "@ngx-translate/core";
+import {ConfirmationService} from 'primeng/api';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
