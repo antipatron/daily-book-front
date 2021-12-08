@@ -23,14 +23,13 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {AutoCompleteModule} from "primeng/autocomplete";
 import {DropdownModule} from "primeng/dropdown";
 import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { ProductAdminComponent } from './product/product-admin.component';
-import { ProviderAdminComponent } from './provider/provider-admin.component';
+import {ButtonModule} from "primeng/button";
+import {InputTextModule} from "primeng/inputtext";
+import {InputNumberModule} from "primeng/inputnumber";
 
 @NgModule({
   declarations: [
-    DashboardsComponent,
-    ProductAdminComponent,
-    ProviderAdminComponent
+    DashboardsComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +53,10 @@ import { ProviderAdminComponent } from './provider/provider-admin.component';
     AutoCompleteModule,
     DropdownModule,
     FormsModule,
+    ButtonModule,
     ReactiveFormsModule,
+    InputTextModule,
+    InputNumberModule,
   ],
   providers: [
     FormBuilder

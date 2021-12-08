@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LanguageService {
-  private defaultLanguage = 'en';
+  private defaultLanguage = 'es';
   private availablelangs = [
     {
       code: 'es',

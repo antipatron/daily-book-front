@@ -7,6 +7,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/of';
 import {MessageService} from 'primeng/api';
 import {TranslateService} from '@ngx-translate/core';
+import {MESSAGES_RESPONSE} from "../../shared/enums/messages-response.enum";
 
 
 @Injectable()
@@ -22,24 +23,45 @@ export class HttpSuccessInterceptor implements HttpInterceptor {
         if (event instanceof HttpResponse) {
           if (event.status === 200) {
             if (event.body.message !== undefined && event.body.message !== 'null' && event.body.message !== null) {
-              this.messageService.add({
-                severity: 'success',
-                summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.SUCCESS'),
-                detail: this.translateService.instant('GENERAL_MESSAGES.CREATED')
-              });
+              if(event.body.message == MESSAGES_RESPONSE.DELETED){
+                this.messageService.add({
+                  severity: 'success',
+                  summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.DELETED'),
+                  detail: this.translateService.instant('GENERAL_MESSAGES.DELETED')
+                });
+              }
+              if(event.body.message == MESSAGES_RESPONSE.CREATED){
+                this.messageService.add({
+                  severity: 'success',
+                  summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.SUCCESS'),
+                  detail: this.translateService.instant('GENERAL_MESSAGES.CREATED')
+                });
+              }
+              if(event.body.message == MESSAGES_RESPONSE.UPDATED){
+                this.messageService.add({
+                  severity: 'success',
+                  summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.SUCCESS'),
+                  detail: this.translateService.instant('GENERAL_MESSAGES.UPDATED')
+                });
+              }
             }
           } else if (event.status === 201) {
-            this.messageService.add({
-              severity: 'success',
-              summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.UPDATED'),
-              detail: this.translateService.instant('GENERAL_MESSAGES.UPDATED')
-            });
-          } else if (event.status === 204) {
-            this.messageService.add({
-              severity: 'success',
-              summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.DELETED'),
-              detail: this.translateService.instant('GENERAL_MESSAGES.DELETED')
-            });
+            if (event.body.message !== undefined && event.body.message !== 'null' && event.body.message !== null) {
+              if(event.body.message == MESSAGES_RESPONSE.CREATED){
+                this.messageService.add({
+                  severity: 'success',
+                  summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.SUCCESS'),
+                  detail: this.translateService.instant('GENERAL_MESSAGES.CREATED')
+                });
+              }
+              if(event.body.message == MESSAGES_RESPONSE.UPDATED){
+                this.messageService.add({
+                  severity: 'success',
+                  summary: this.translateService.instant('GENERAL_MESSAGES.SUMMARY.SUCCESS'),
+                  detail: this.translateService.instant('GENERAL_MESSAGES.UPDATED')
+                });
+              }
+            }
           }
         }
       }

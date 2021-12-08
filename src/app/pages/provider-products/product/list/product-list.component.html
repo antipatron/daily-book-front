@@ -1,0 +1,129 @@
+<div class="card">
+  <div class="title-table">
+    <p>{{ 'PRODUCT.TITLE_TABLE' | translate }}</p>
+    <span> {{totalRecords | number}} {{'PRODUCT.TOTAL_RECORDS' | translate }} </span>
+
+    <div class="row">
+      <div class="col-sm">
+        <div>
+          <label>{{'PRODUCT.CODE' | translate}}</label>
+        </div>
+        <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="code" />
+      </div>
+      <div class="col-sm">
+        <div>
+          <label>{{'PRODUCT.NAME' | translate}}</label>
+        </div>
+        <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="name" />
+      </div>
+      <div class="col-sm">
+        <div>
+          <label>{{'PRODUCT.PROVIDER_NAME' | translate}}</label>
+        </div>
+        <input style="width: 100%;" class="form-control" pInputText type="text" [(ngModel)]="providerName" />
+      </div>
+      <div class="col-sm">
+        <div>
+          <label>&nbsp;</label>
+        </div>
+        <button class="btn btn-primary" (click)="searchProducts()">{{'PRODUCT.SEARCH' | translate}}</button>
+      </div>
+      <div class="col-sm">
+        <div>
+          <label>&nbsp;</label>
+        </div>
+        <button class="btn btn-primary" (click)="createProduct()">{{'PRODUCT.CREATE' | translate}}</button>
+      </div>
+    </div>
+  </div>
+
+  <p-table [value]="products" [scrollable]="true" scrollHeight="400px" [loading]="loading" [paginator]="true" sortMode="single" [columns]="cols"
+           [reorderableColumns]="true" [rows]="10" [lazy]="false" [totalRecords]="totalRecords">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:{{col.width}}; width:{{col.width}}">
+          {{'PRODUCT.'+col.header | translate }}
+          <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td style="min-width:140px; width:140px">{{product.code}}</td>
+        <td style="min-width:140px; width:140px">{{product.name}}</td>
+        <td style="min-width:140px; width:140px">{{product.netPrice | currency:3:"$"}}</td>
+        <td style="min-width:140px; width:140px">{{product.sellPrice| currency:3:"$"}}</td>
+        <td style="min-width:140px; width:140px">{{product.providerName}}</td>
+
+        <td style="min-width:140px; width:160px">
+          <div class="row">
+            <div class="col"><button pButton pRipple type="button" icon="pi pi-eye" class="p-button-rounded p-button-outlined p-button-success" (click)="openDialog(product)"></button></div>
+            <div class="col"><button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-outlined p-button-primary" (click)="editProduct(product)"></button></div>
+            <div class="col"><button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-outlined p-button-danger" (click)="confirmDelete(product)"></button></div>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td class="text-center" colspan="8" style="text-align: center;">
+          <b class="h8">{{'PRODUCT.NO_DATA_DISPLAY' | translate }}</b>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog *ngIf="displayDialog" header="{{'PRODUCT.TITLE_DIALOG' | translate}}" [(visible)]="displayDialog" closeOnEscape="true"
+          [draggable]="false" [resizable]="false" [style]="{width: '60vw'}" [contentStyle]="{'max-height':'500px'}" [transitionOptions]="'400ms'" [closable]="true">
+  <div class="info-resume">
+    <div class="row">
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.CODE' | translate}}</p>
+        <h4>{{productSelected.code}}
+          <span *ngIf="!productSelected.code">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.NAME' | translate}}</p>
+        <h4>{{productSelected.name}}
+          <span *ngIf="!productSelected.name">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.DESCRIPTION' | translate}}</p>
+        <h4>{{productSelected.description}}
+          <span *ngIf="!productSelected.description">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.BRAND' | translate}}</p>
+        <h4>{{productSelected.nameBrand}}
+          <span *ngIf="!productSelected.nameBrand">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.IVA' | translate}}</p>
+        <h4>{{productSelected.valueIva/100 | percent}}</h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.PROVIDER' | translate}}</p>
+        <h4>{{productSelected.providerName}}
+          <span *ngIf="!productSelected.providerName">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.NET_PRICE' | translate}}</p>
+        <h4>{{productSelected.netPrice | currency:3:"$"}}
+          <span *ngIf="!productSelected.netPrice">-</span>
+        </h4>
+      </div>
+      <div class="col-lg-4 mt-2">
+        <p class="text-muted">{{'PRODUCT.SELL_PRICE' | translate}}</p>
+        <h4>{{productSelected.sellPrice | currency:3:"$"}}
+          <span *ngIf="!productSelected.sellPrice">-</span>
+        </h4>
+      </div>
+    </div>
+  </div>
+</p-dialog>

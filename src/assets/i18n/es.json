@@ -1,7 +1,111 @@
 {
   "MENUITEMS": {
     "DASHBOARD": "Dashboard",
-    "PRODUCT": "Products",
-    "PROVIDER": "Providers"
+    "PRODUCT": "Productos",
+    "PROVIDER": "Proveedores"
+  },
+  "PRODUCT": {
+    "TITLE_TABLE": "Productos",
+    "TOTAL_RECORDS": "registros",
+    "NO_DATA_DISPLAY": "No hay información para mostrar",
+    "SEARCH": "Buscar",
+    "CREATE": "Crear producto",
+    "CREATE_PRODUCT": "Nuevo producto",
+    "EDIT_PRODUCT": "Editar producto",
+    "ADD_DETAIL": "Agregar nuevo detalle",
+    "RETURN": "Volver",
+    "ID": "Id",
+    "CODE": "Código",
+    "NAME": "Nombre",
+    "DESCRIPTION": "Descripción",
+    "NET_PRICE": "Precio neto",
+    "SELL_PRICE": "Precio de venta",
+    "BRAND": "Marca",
+    "SELECT_BRAND": "Seleccionar marca",
+    "PROVIDER": "Proveedor",
+    "SELECT_PROVIDER": "Seleccionar proveedor",
+    "IVA": "IVA",
+    "SELECT_IVA": "Seleccionar IVA",
+    "ACTIONS": "Acciones",
+    "SAVE": "Guardar",
+    "DETAILS": {
+      "TITLE_TABLE": "Detalles",
+      "TOTAL_RECORDS": "registros",
+      "PROVIDER": "Proveedor",
+      "NET_PRICE": "Precio neto",
+      "SELL_PRICE": "Precio de venta",
+      "ACTIONS": "Acciones",
+      "ADD_DETAIL": "Agregar nuevo detalle",
+      "EDIT_DETAIL": "Editar detalle",
+      "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro?",
+      "CONFIRMATION_DELETE": "Confirmación."
+    },
+    "NAME_BRAND": "Marca",
+    "VALUE_IVA": "IVA",
+    "PROVIDER_NAME": "Proveedor",
+    "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro? Se eliminarán todos los detalles asociados.",
+    "CONFIRMATION_DELETE": "Confirmación.",
+    "TITLE_DIALOG": "Producto"
+  },
+  "PROVIDER": {
+    "TITLE_TABLE": "Proveedores",
+    "TOTAL_RECORDS": "registros",
+    "NO_DATA_DISPLAY": "No hay información para mostrar",
+    "SEARCH": "Buscar",
+    "IDENTIFIER": "Identificador",
+    "ADDRESS": "Dirección",
+    "EMAIL": "Correo",
+    "PROVIDER_NAME": "Proveedor",
+    "SELLER_NAME": "Vendedor",
+    "PHONE_ONE": "Teléfono principal",
+    "PHONE_TWO": "Teléfono 2",
+    "PHONE_THREE": "Teléfono 3",
+    "ACTIONS": "Acciones",
+    "CREATE": "Crear proveedor",
+    "CREATE_PROVIDER": "Nuevo proveedor",
+    "EDIT_PROVIDER": "Editar proveedor",
+    "ADD_DETAIL": "Agregar nuevo detalle",
+    "SAVE": "Guardar",
+    "RETURN": "Volver",
+    "CONFIRMATION_MESSAGE_DELETE": "¿Está seguro de eliminar este registro?",
+    "CONFIRMATION_DELETE": "Confirmación.",
+    "TITLE_DIALOG": "Proveedor"
+  },
+  "COMMON": {
+    "VALIDATORS": {
+      "REQUIRED": "requerido",
+      "MIN_LEGTH": "largo mínimo",
+      "CHARACTERS": "caracteres",
+      "MAX_LEGTH": "largo máximo",
+      "INVALID_PATTERN": "no tiene un patrón válido.",
+      "MIN": "valor mínimo",
+      "MAX": "supera el valor máximo de ",
+      "FIELD": "Campo"
+    }
+  },
+  "GENERAL_MESSAGES": {
+    "SUCCESS": "Operación exitosa",
+    "CREATED": "Los datos se crearon con éxito",
+    "UPDATED": "Los datos se actualizaron con éxito",
+    "DELETED": "El registro se eliminó con éxito",
+    "SUMMARY": {
+      "ALERT": "Alert",
+      "SUCCESS": "Éxito",
+      "CREATED": "Creado",
+      "UPDATED": "Actualizado",
+      "DELETED": "Eliminado"
+    },
+    "ACCESS_EXCEPTION": {
+      "PERMISSIONS": "El usuario no tiene permisos suficientes para acceder a la aplicación.",
+      "UNAVAILABLE": "No puede acceder a la aplicación porque el usuario no está activo o no tiene permisos o los servicios no están disponibles",
+      "REQUEST_ERROR": "Hubo un problema al procesar su solicitud"
+    }
+  },
+  "API_MESSAGES_RESPONSE": {
+    "REQUEST_CLIENT_EXCEPTION": "Error en la petición del cliente",
+    "BUSINESS_EXCEPTION": "Error procesando reglas de negocio",
+    "BUSINESS_EXCEPTION_PROVIDER_DUPLICATED": "El proveedor ya está asignado a otro detalle",
+    "SERVER_EXCEPTION": "Excepcion no controlada",
+    "SERVER_EXCEPTION_MESSAGE": "Hubo un problema procesando la solicitud"
   }
 }

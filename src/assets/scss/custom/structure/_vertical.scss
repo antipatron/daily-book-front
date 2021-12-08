@@ -1,6 +1,6 @@
 //
 // _menu.scss
-// 
+//
 
 .metismenu {
     margin: 0;
@@ -42,12 +42,6 @@
     position: fixed;
     top: $header-height;
     border-right: 1px solid $card-border-color;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 10px 30px 0px #FC4F00;
-    -moz-box-shadow: 0 10px 30px 0px #FC4F00;
-    -webkit-box-shadow: 0 10px 30px 0px #FC4F00;
-    -o-box-shadow: 0 10px 30px 0px #FC4F00;
-    -ms-box-shadow: 0 10px 30px 0px #FC4F00;
 }
 
 .main-content {
@@ -92,7 +86,7 @@
                 color: $sidebar-menu-item-color;
                 position: relative;
                 transition: all .4s;
-                
+
                 i {
                     display: inline-block;
                     min-width: 1.6rem;
@@ -153,9 +147,9 @@
         > li {
             &.mm-active {
                 > a {
-                    background-color: $header-dark-bg !important;
+                    background-color: $primary !important;
                     color: $white !important;
-    
+
                     > i {
                         color: $white !important;
                     }
@@ -294,7 +288,7 @@ body[data-sidebar-size="sm"] {
                                 display: none;
                             }
                         }
-                        
+
                         &:hover,
                         &:active,
                         &:focus {
@@ -397,7 +391,7 @@ body[data-sidebar="dark"] {
     }
 
     #sidebar-menu {
-    
+
         ul {
             li {
                 a {
@@ -406,7 +400,7 @@ body[data-sidebar="dark"] {
                     i {
                         color: $sidebar-dark-menu-item-icon-color;
                     }
-    
+
                     &:hover {
                         color: $sidebar-dark-menu-item-hover-color;
 
@@ -433,7 +427,7 @@ body[data-sidebar="dark"] {
     }
     // Enlarge menu
     &[data-sidebar-size="sm"] {
-        min-height: 1550px;
+        /*min-height: 1550px;*/
 
         // Side menu
         .vertical-menu {
@@ -442,7 +436,7 @@ body[data-sidebar="dark"] {
 
                 > ul {
                     > li {
-                        
+
                         &:hover {
                             > a {
                                 background: lighten($sidebar-dark-bg, 2%);
@@ -466,11 +460,11 @@ body[data-sidebar="dark"] {
                     ul{
                         background-color: $sidebar-dark-bg;
                     }
-                    
+
                 }
 
                 ul{
-                    
+
                     li{
                         &.mm-active .active{
                             color: $sidebar-dark-menu-item-active-color !important;
@@ -618,7 +612,7 @@ body[data-sidebar="brand"] {
 
                     &:hover {
                         color: $white;
-    
+
                         i {
                             color: $white;
                         }
@@ -658,7 +652,7 @@ body[data-sidebar="brand"] {
                     li{
                         &.mm-active {
                             .active{
-                                color: $header-dark-bg !important;
+                                color: $sidebar-menu-item-active-color !important;
                             }
                         }
 

@@ -3,5 +3,17 @@
     "DASHBOARD": "Dashboard",
     "PRODUCT": "Products",
     "PROVIDER": "Providers"
+  },
+  "PRODUCT": {
+    "TITLE_TABLE": "Products",
+    "TOTAL_RECORDS": "records",
+    "NO_DATA_DISPLAY": "No data to display",
+    "SEARCH": "Search",
+    "CODE": "Code",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "NAME_BRAND": "Brand",
+    "VALUE_IVA": "IVA",
+    "ACTIONS": "Actions"
   }
 }
