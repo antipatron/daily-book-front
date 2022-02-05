@@ -20,7 +20,7 @@ export class ProviderListComponent implements OnInit, OnDestroy {
   totalRecords = 0;
   providerName: any = null;
   sellerName: any = null;
-  public cols: any[] | undefined;
+  public cols: any[] = [];
   displayDialog= false;
   providerSelected = new Provider();
 
