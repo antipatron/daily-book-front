@@ -152,8 +152,8 @@
     <ng-template pTemplate="body" let-productDetail>
       <tr>
         <td style="min-width:140px; width:140px">{{getProviderNameById(productDetail.providerId)}}</td>
-        <td style="min-width:140px; width:140px">{{productDetail.netPrice | currency:3:"$"}}</td>
-        <td style="min-width:140px; width:140px">{{productDetail.sellPrice | currency:3:"$"}}</td>
+        <td style="min-width:140px; width:140px">{{productDetail.netPrice | currency:"3":"$"}}</td>
+        <td style="min-width:140px; width:140px">{{productDetail.sellPrice | currency:"3":"$"}}</td>
         <td style="min-width:140px; width:160px">
           <div class="row">
             <div class="col-sm"><button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-outlined p-button-primary" (click)="editDetail(productDetail)"></button></div>

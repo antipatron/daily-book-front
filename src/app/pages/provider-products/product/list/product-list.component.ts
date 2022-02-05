@@ -21,9 +21,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   name: any = null;
   code: any = null;
   providerName: any =  null;
-  public cols: any[] | undefined;
+  public cols: any[] = [];
   displayDialog= false;
   productSelected = new Product();
+  closeOnEscape: boolean = true;
 
   constructor(private productService: ProductService, private providerProducts: ProviderProductsService,
               private router: Router, private route: ActivatedRoute,
@@ -93,6 +94,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   openDialog(product: Product) {
     this.displayDialog = true;
     this.productSelected = product;
+  }
+
+  getValueIva(value: any){
+    return Number(value)/100;
   }
 
   ngOnDestroy(): void {
