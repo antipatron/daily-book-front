@@ -15,6 +15,7 @@ phases:
       - ng build --configuration=prod --outputPath=dist
   post_build:
     commands:
+      - ls
       - echo build process finished, we should uplload to S3 now
       - cd dist/$APP_NAME
       - ls -la
