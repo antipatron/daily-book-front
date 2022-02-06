@@ -13,10 +13,15 @@ phases:
     commands:
       - echo build process started now
       - ng build --configuration=prod --outputPath=dist
-  post_build:
-    commands:
-      - ls
-      - echo build process finished, we should uplload to S3 now
-      - cd dist
-      - ls -la
-      - aws s3 sync . s3://daily-book-front --delete
+artifacts:
+    files:
+      - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes
+  #post_build:
+    #commands:
+      #- ls
+      #- echo build process finished, we should uplload to S3 now
+      #- cd dist
+      #- ls -la
+      #- aws s3 sync . s3://daily-book-front --delete
