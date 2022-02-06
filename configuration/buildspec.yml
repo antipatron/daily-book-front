@@ -16,7 +16,6 @@ phases:
   post_build:
     commands:
       - ls
-      - cd dist
       - echo build process finished, we should uplload to S3 now
       - cd dist
       - ls -la
