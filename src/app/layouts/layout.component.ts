@@ -16,7 +16,7 @@ import {
  */
 export class LayoutComponent implements OnInit, AfterViewInit {
 
-  // layout related config
+  // layout related configuration
   layoutType!: string;
   layoutMode!: string;
   layoutwidth!: string;

@@ -13,7 +13,7 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
           }
         });
         await keycloak.init({
-          config: environment.keycloak,
+          configuration: environment.keycloak,
           initOptions: {
             onLoad: 'login-required',
             checkLoginIframe: false,
