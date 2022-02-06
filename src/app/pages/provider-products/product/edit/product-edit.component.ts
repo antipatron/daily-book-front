@@ -36,7 +36,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   productSelected: any
   loading = false;
   totalRecords = 0;
-  public cols: any[] | undefined;
+  public cols: any[] = [];
   showFormDetail = true;
 
   constructor(private location: Location, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder,

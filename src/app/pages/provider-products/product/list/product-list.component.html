@@ -51,8 +51,8 @@
       <tr>
         <td style="min-width:140px; width:140px">{{product.code}}</td>
         <td style="min-width:140px; width:140px">{{product.name}}</td>
-        <td style="min-width:140px; width:140px">{{product.netPrice | currency:3:"$"}}</td>
-        <td style="min-width:140px; width:140px">{{product.sellPrice| currency:3:"$"}}</td>
+        <td style="min-width:140px; width:140px">{{product.netPrice | currency:"3":"$"}}</td>
+        <td style="min-width:140px; width:140px">{{product.sellPrice| currency:"3":"$"}}</td>
         <td style="min-width:140px; width:140px">{{product.providerName}}</td>
 
         <td style="min-width:140px; width:160px">
@@ -74,7 +74,7 @@
   </p-table>
 </div>
 
-<p-dialog *ngIf="displayDialog" header="{{'PRODUCT.TITLE_DIALOG' | translate}}" [(visible)]="displayDialog" closeOnEscape="true"
+<p-dialog *ngIf="displayDialog" header="{{'PRODUCT.TITLE_DIALOG' | translate}}" [(visible)]="displayDialog" [closeOnEscape]="true"
           [draggable]="false" [resizable]="false" [style]="{width: '60vw'}" [contentStyle]="{'max-height':'500px'}" [transitionOptions]="'400ms'" [closable]="true">
   <div class="info-resume">
     <div class="row">
@@ -104,7 +104,7 @@
       </div>
       <div class="col-lg-4 mt-2">
         <p class="text-muted">{{'PRODUCT.IVA' | translate}}</p>
-        <h4>{{productSelected.valueIva/100 | percent}}</h4>
+        <h4>{{getValueIva(productSelected?.valueIva) | percent}}</h4>
       </div>
       <div class="col-lg-4 mt-2">
         <p class="text-muted">{{'PRODUCT.PROVIDER' | translate}}</p>
@@ -114,13 +114,13 @@
       </div>
       <div class="col-lg-4 mt-2">
         <p class="text-muted">{{'PRODUCT.NET_PRICE' | translate}}</p>
-        <h4>{{productSelected.netPrice | currency:3:"$"}}
+        <h4>{{productSelected.netPrice | currency:"3":"$"}}
           <span *ngIf="!productSelected.netPrice">-</span>
         </h4>
       </div>
       <div class="col-lg-4 mt-2">
         <p class="text-muted">{{'PRODUCT.SELL_PRICE' | translate}}</p>
-        <h4>{{productSelected.sellPrice | currency:3:"$"}}
+        <h4>{{productSelected.sellPrice | currency:"3":"$"}}
           <span *ngIf="!productSelected.sellPrice">-</span>
         </h4>
       </div>
