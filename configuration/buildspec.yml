@@ -16,7 +16,8 @@ phases:
   post_build:
     commands:
       - ls
+      - cd dist
       - echo build process finished, we should uplload to S3 now
-      - cd dist/$APP_NAME
+      - cd dist
       - ls -la
       - aws s3 sync . s3://daily-book-front --delete
